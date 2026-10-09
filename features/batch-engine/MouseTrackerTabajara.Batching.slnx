@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/MouseTrackerTabajara.Batching/MouseTrackerTabajara.Batching.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/MouseTrackerTabajara.Batching.Tests/MouseTrackerTabajara.Batching.Tests.csproj" />
+  </Folder>
+</Solution>

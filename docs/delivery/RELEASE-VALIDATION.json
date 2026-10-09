@@ -1,0 +1,103 @@
+{
+  "version": "0.1.0-dev.12",
+  "tested_windows_zip_sha256": "fd963c5eab64622d48635629a3cfbf2326fe3b27df49e330f1734b1f16955e2d",
+  "source_commit": "8345a609f4877f677b46013d4ea18494a33b2695",
+  "regression": {
+    "total": 344.0,
+    "passed": 344.0,
+    "failed": 0,
+    "skipped": 0,
+    "projects": 9,
+    "scope": "Aggregated passing9project receipts; last change is sensitivity test-host lifetime only. Original failed receipts preserved, not erased.",
+    "receipts": [
+      {
+        "project": "MouseTrackerTabajara.Atlas.Tests.trx",
+        "sha256": "4EDD8E4B7053E630B05C57E941BFC246A1F3C00F1EFDC82FD70A95DD609526E0",
+        "total": 21,
+        "passed": 21,
+        "failed": 0
+      },
+      {
+        "project": "MouseTrackerTabajara.Camera.Tests.trx",
+        "sha256": "B77A553A804913B0A8DDCA17C29BF2AC0A5B9B3F7D6E694155A0FCC9DF622CE3",
+        "total": 11,
+        "passed": 11,
+        "failed": 0
+      },
+      {
+        "project": "MouseTrackerTabajara.Cli.Tests.trx",
+        "sha256": "2D8EDF339E683C7B2BA2CBA85CCC3BBAB3A12B0206C5ECFEB762EED643723C24",
+        "total": 15,
+        "passed": 15,
+        "failed": 0
+      },
+      {
+        "project": "MouseTrackerTabajara.RegionScenario.Tests.trx",
+        "sha256": "A17EE0D276B9C381A840109ABC0AF6839D2D71C2215C1B919E2B96C265F7519B",
+        "total": 15,
+        "passed": 15,
+        "failed": 0
+      },
+      {
+        "project": "MouseTrackerTabajara.Report.Tests.trx",
+        "sha256": "E1A1EE4093C8FED2856DA011155A8B46FFB8E774534FB1E5745BE073FD8370B0",
+        "total": 15,
+        "passed": 15,
+        "failed": 0
+      },
+      {
+        "project": "Sensitivity.Tests.trx",
+        "sha256": "C55A96D5546A448F2A9FEAD3543DFCAF7D73E72F5167DEA7A4C6223DB895D720",
+        "total": 2,
+        "passed": 2,
+        "failed": 0
+      },
+      {
+        "project": "Stability.Tests.trx",
+        "sha256": "4EC426C46AE9E3B211414BE750888823966644B94856719FA28E06D400A3FDFE",
+        "total": 33,
+        "passed": 33,
+        "failed": 0
+      },
+      {
+        "project": "Tests.trx",
+        "sha256": "D12FE074E7DE049D49EF1AB7F6304E28F1C362E1BE200ACFEB42A96D600E6361",
+        "total": 143,
+        "passed": 143,
+        "failed": 0
+      },
+      {
+        "project": "Validation.Tests.trx",
+        "sha256": "177D67677B87D707838C00BC07A8F64DFF601F76FDCE91DC64752AA5D88B922C",
+        "total": 89,
+        "passed": 89,
+        "failed": 0
+      }
+    ]
+  },
+  "collection": {
+    "recordings": 30,
+    "groups": 4,
+    "resume": "prior10 reused,20 new",
+    "expected_slots": 84,
+    "missing_slots": 54,
+    "scope": "Synthetic tooling only; not cohort completion or accuracy",
+    "mapping": [
+      21,
+      4,
+      3,
+      2
+    ],
+    "mapped_slots": 30,
+    "source_video_bytes": "UNCHANGED",
+    "animals": 4
+  },
+  "frozen_report_reconstruction": "PASS on exact extracted package",
+  "local_runtime_startup_and_reopen": "PASS on exact extracted package, Windows PowerShell 5.1",
+  "tested_version_transition": "PASS dev.7 to dev.12 with separate original backup and rollback copies",
+  "clean_collaborator_host": "UNRUN",
+  "real_study_accuracy": "NOT ESTABLISHED",
+  "signing": "UNSIGNED",
+  "native_toolchain_compliance_audit": "OPEN",
+  "privacy": "No experimental recordings, private study databases, private reference trajectories, credentials or internal worker logs published."
+}

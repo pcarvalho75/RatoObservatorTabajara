@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><ShouldUnsetParentConfigurationAndPlatform>false</ShouldUnsetParentConfigurationAndPlatform><TargetFramework>net10.0</TargetFramework><PlatformTarget>x64</PlatformTarget></PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CalibrationScenarioMath.cs">
+      <LogicalName>scenario-source/src/MouseTrackerTabajara.Application/CalibrationScenarioMath.cs</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegionScenarioEvidence.cs">
+      <LogicalName>scenario-source/src/MouseTrackerTabajara.Application/RegionScenarioEvidence.cs</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\MouseTrackerTabajara.Core\RegionScenarioComparison.cs">
+      <LogicalName>scenario-source/src/MouseTrackerTabajara.Core/RegionScenarioComparison.cs</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\MouseTrackerTabajara.Core\RegionScenarioMath.cs">
+      <LogicalName>scenario-source/src/MouseTrackerTabajara.Core/RegionScenarioMath.cs</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\MouseTrackerTabajara.Desktop\MainWindow.RegionScenarios.cs">
+      <LogicalName>scenario-source/src/MouseTrackerTabajara.Desktop/MainWindow.RegionScenarios.cs</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\MouseTrackerTabajara.Desktop\RegionScenarioPartial.cs">
+      <LogicalName>scenario-source/src/MouseTrackerTabajara.Desktop/RegionScenarioPartial.cs</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\MouseTrackerTabajara.Desktop\RegionScenarioSource.cs">
+      <LogicalName>scenario-source/src/MouseTrackerTabajara.Desktop/RegionScenarioSource.cs</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\MouseTrackerTabajara.Desktop\RegionScenarioWindow.cs">
+      <LogicalName>scenario-source/src/MouseTrackerTabajara.Desktop/RegionScenarioWindow.cs</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../MouseTrackerTabajara.Core/MouseTrackerTabajara.Core.csproj" />
+    <ProjectReference Include="../MouseTrackerTabajara.Tracking/MouseTrackerTabajara.Tracking.csproj" />
+    <ProjectReference Include="../MouseTrackerTabajara.Storage/MouseTrackerTabajara.Storage.csproj" />
+    <ProjectReference Include="../../features/batch-engine/src/MouseTrackerTabajara.Batching/MouseTrackerTabajara.Batching.csproj" AdditionalProperties="Configuration=$(Configuration)" SetConfiguration="Configuration=$(Configuration)" />
+    <ProjectReference Include="../../features/camera-calibration/MouseTrackerTabajara.Calibration.csproj" />
+  </ItemGroup>
+</Project>

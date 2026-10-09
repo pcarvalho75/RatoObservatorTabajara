@@ -1,0 +1,10 @@
+Mouse Tracker Tabajara — collaborator-test delivery complete
+Release0.1.0-dev.12, source8345a609f4877f677b46013d4ea18494a33b2695.
+Windows x64 self-contained ZIP in Desktop\Luciana\Mouse Tracker Tabajara\0.1.0-dev.12.
+R1–R9 accepted for the revised collaborator-test mission: reports/intake/review,
+344passing checks across9projects, package/source/notices/guide, actual extracted
+30video save10/reuse10/new20/report replay, backup/update/rollback and handoff.
+No videos sent or included. Source videos remain external.
+Remaining collaborator-test work:0hours. Local collaborator testing/feedback next.
+Original scientific roadmap835/1000 remains separate:165unearned points for
+real-study design/reference/bias/clean-host/researcher sign-off and final acceptance.

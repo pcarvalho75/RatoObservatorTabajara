@@ -1,0 +1,56 @@
+[
+  {
+    "audit_working_copy_sha256": "BF4A52612302050351BB2712F997BB0E2B1DC48C62D68BEF64126A8C8249FB4E",
+    "source": "AOM v3.14.1 source archive LICENSE",
+    "file": "AOM-LICENSE.txt",
+    "hash_scope": "Audit working copy; Git checkout newline normalization can change text bytes. Delivered package manifest hashes actual delivered files."
+  },
+  {
+    "audit_working_copy_sha256": "3CE8B2CC54E6C2245BFBF607BA1CC1FD9CE0D7C03E8D559DA3B64C3D37068C8A",
+    "source": "AOM v3.14.1 source archive PATENTS",
+    "file": "AOM-PATENTS.txt",
+    "hash_scope": "Audit working copy; Git checkout newline normalization can change text bytes. Delivered package manifest hashes actual delivered files."
+  },
+  {
+    "audit_working_copy_sha256": "92A759EC0FEBDE4750821736BBDE642A3B835C0604FC81BEE62F9E428F86981F",
+    "source": "FFmpeg n7.1 source archive COPYING.LGPLv2.1",
+    "file": "FFmpeg-COPYING.LGPLv2.1.txt",
+    "hash_scope": "Audit working copy; Git checkout newline normalization can change text bytes. Delivered package manifest hashes actual delivered files."
+  },
+  {
+    "audit_working_copy_sha256": "EDE44CB106760B85E1773DF347324D5CC29622F058F0C986AE1FA857A6FEBC3B",
+    "source": "FFmpeg n7.1 source archive LICENSE.md",
+    "file": "FFmpeg-LICENSE.md",
+    "hash_scope": "Audit working copy; Git checkout newline normalization can change text bytes. Delivered package manifest hashes actual delivered files."
+  },
+  {
+    "audit_working_copy_sha256": "2CC37F6DF345042B32A0C99615D89B8EB079EF094C1EDCFA4F57BA8F77D9809E",
+    "source": "libvpx v1.16.0 source archive LICENSE",
+    "file": "libvpx-LICENSE.txt",
+    "hash_scope": "Audit working copy; Git checkout newline normalization can change text bytes. Delivered package manifest hashes actual delivered files."
+  },
+  {
+    "audit_working_copy_sha256": "D578B7A471D48406A16C64E3C6A8685E66292F3C6709214C49CA55B2F22ED7CD",
+    "source": "libvpx v1.16.0 source archive PATENTS",
+    "file": "libvpx-PATENTS.txt",
+    "hash_scope": "Audit working copy; Git checkout newline normalization can change text bytes. Delivered package manifest hashes actual delivered files."
+  },
+  {
+    "audit_working_copy_sha256": "1F9D4168B4A9A2BDD1851023735A41D0AB09FFA5FCC1A721A99EBC1D7D35A9C5",
+    "source": "OpenCV thirdparty commit06dc20cad65dc7fcf784f70c95d46750520889a7 license.txt",
+    "file": "OpenCV-FFmpeg-license.txt",
+    "hash_scope": "Audit working copy; Git checkout newline normalization can change text bytes. Delivered package manifest hashes actual delivered files."
+  },
+  {
+    "audit_working_copy_sha256": "26E4734E7AC1E72ADAC7A06A747AC9A997EE3714BC2ED8B745FF27DEE35A2AD9",
+    "source": "OpenCV thirdparty commit06dc20cad65dc7fcf784f70c95d46750520889a7 readme.txt",
+    "file": "OpenCV-FFmpeg-readme.txt",
+    "hash_scope": "Audit working copy; Git checkout newline normalization can change text bytes. Delivered package manifest hashes actual delivered files."
+  },
+  {
+    "audit_working_copy_sha256": "DD5C1C9668512530FA5A96E4C29AC4033D70A7EEB0EED7A42FDDB6DD794EBDBB",
+    "source": "Official Cisco v2.5.0 commit8c7008aeb6335e7d36ab0d9a023a63f82a8eaac0 LICENSE",
+    "file": "OpenH264-LICENSE.txt",
+    "hash_scope": "Audit working copy; Git checkout newline normalization can change text bytes. Delivered package manifest hashes actual delivered files."
+  }
+]

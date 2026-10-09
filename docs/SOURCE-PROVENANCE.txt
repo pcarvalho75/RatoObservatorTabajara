@@ -1,0 +1,23 @@
+Mouse Tracker Tabajara native Windows version
+=============================================
+Tracking operations ported from Olivier Friard's DORIS image_processing and
+detect_and_filter_objects functions, using the standard native OpenCV operations.
+Copyright 2017-2022 Olivier Friard; GPL-3.0-or-later. See ../LICENSE.txt.
+Original repository: https://github.com/olivierfriard/DORIS
+Original commit: 854fd5ccf5de2a875072078cc93ce11d0a6f683d
+Original file: doris/doris_functions.py
+Original SHA256: c0508ab4c7073ae1b8b8712b046fb41a948e22fd6fe18e5e372b71c6ca127ffa
+
+Measurement semantics and event-history safeguards are ported from the local
+MorrisLab Python 0.1.1 development prototype (local reference; private inputs omitted).
+That prototype also carries GPL-compatible DORIS source provenance.
+The native application is distributed under GPL-3.0-or-later.
+
+Intentional correction: exclusion masks are applied after threshold/inversion,
+so their behavior is independent of foreground polarity.
+Regression agreement with Python does not establish scientific accuracy.
+
+Pinned initial native packages (verified through official NuGet metadata):
+OpenCvSharp5 and OpenCvSharp5.runtime.win 5.0.0.20261003
+Microsoft.Data.Sqlite 10.0.12
+.NET SDK 10.0.401 / WPF / Windows x64.

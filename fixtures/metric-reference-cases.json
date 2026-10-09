@@ -1,0 +1,1265 @@
+{
+  "reference_version": "0.1.1",
+  "cases": [
+    {
+      "name": "adjacent_displacement",
+      "metadata": {
+        "width": 200,
+        "height": 200,
+        "fps": 10,
+        "frame_count": 10,
+        "duration_seconds": 1
+      },
+      "settings": {
+        "cx": 0.5,
+        "cy": 0.5,
+        "rx": 0.4,
+        "ry": 0.4,
+        "threshold": 30,
+        "invert": true,
+        "blur": 2,
+        "min_area": 100,
+        "max_area": 6000,
+        "max_extension": 150,
+        "max_jump": 50,
+        "diameter_cm": null,
+        "start_seconds": 0,
+        "end_seconds": null,
+        "platform": null,
+        "wall_boundary": 0.8,
+        "arena_confirmed": true
+      },
+      "points": [
+        [
+          0,
+          80,
+          80,
+          "tracked",
+          1
+        ],
+        [
+          1,
+          96,
+          80,
+          "tracked",
+          1
+        ]
+      ],
+      "expected": {
+        "total_frames": 2,
+        "tracked_frames": 2,
+        "coverage_percent": 100.0,
+        "duration_seconds": 0.2,
+        "tracked_seconds": 0.2,
+        "unknown_seconds": 0.0,
+        "status_counts": {
+          "tracked": 2
+        },
+        "longest_gap_seconds": 0.0,
+        "distance": 0.1,
+        "distance_unit": "pool diameters",
+        "adjacent_motion_seconds": 0.1,
+        "mean_speed": 1.0,
+        "speed_unit": "pool diameters/s",
+        "quadrant_seconds": {
+          "NW": 0.2,
+          "NE": 0.0,
+          "SW": 0.0,
+          "SE": 0.0
+        },
+        "quadrant_observed_percent": {
+          "NW": 100.0,
+          "NE": 0.0,
+          "SW": 0.0,
+          "SE": 0.0
+        },
+        "quadrant_full_trial_percent_bounds": {
+          "NW": [
+            100.0,
+            100.0
+          ],
+          "NE": [
+            0.0,
+            0.0
+          ],
+          "SW": [
+            0.0,
+            0.0
+          ],
+          "SE": [
+            0.0,
+            0.0
+          ]
+        },
+        "wall_observed_percent": 0.0,
+        "wall_boundary": 0.8,
+        "target_quadrant": null,
+        "target_observed_percent": null,
+        "target_full_trial_percent_lower_bound": null,
+        "target_full_trial_percent_upper_bound": null,
+        "platform_site_seconds": null,
+        "platform_site_entries": null,
+        "first_site_visit_seconds": null,
+        "mean_proximity_diameters": null,
+        "site_visit_time": null,
+        "site_visit_observed": null,
+        "site_visit_status": "not_configured",
+        "first_visit_lower_seconds": null,
+        "first_visit_upper_seconds": null,
+        "endpoint_eligibility": {
+          "target_observed_percent": false,
+          "wall_observed_percent": true,
+          "distance": true,
+          "mean_speed": true,
+          "mean_proximity_diameters": false,
+          "platform_site_entries": false,
+          "first_site_visit_seconds": false
+        },
+        "endpoint_policy": "Scalar group comparisons require complete observation for whole-trial measurements. Occupancy bounds remain available with gaps. First-event timing requires complete history through that event; no-visit censoring requires complete trial history."
+      }
+    },
+    {
+      "name": "physical_units",
+      "metadata": {
+        "width": 200,
+        "height": 200,
+        "fps": 10,
+        "frame_count": 10,
+        "duration_seconds": 1
+      },
+      "settings": {
+        "cx": 0.5,
+        "cy": 0.5,
+        "rx": 0.4,
+        "ry": 0.4,
+        "threshold": 30,
+        "invert": true,
+        "blur": 2,
+        "min_area": 100,
+        "max_area": 6000,
+        "max_extension": 150,
+        "max_jump": 50,
+        "diameter_cm": 100,
+        "start_seconds": 0,
+        "end_seconds": null,
+        "platform": null,
+        "wall_boundary": 0.8,
+        "arena_confirmed": true
+      },
+      "points": [
+        [
+          0,
+          80,
+          80,
+          "tracked",
+          1
+        ],
+        [
+          1,
+          96,
+          80,
+          "tracked",
+          1
+        ]
+      ],
+      "expected": {
+        "total_frames": 2,
+        "tracked_frames": 2,
+        "coverage_percent": 100.0,
+        "duration_seconds": 0.2,
+        "tracked_seconds": 0.2,
+        "unknown_seconds": 0.0,
+        "status_counts": {
+          "tracked": 2
+        },
+        "longest_gap_seconds": 0.0,
+        "distance": 10.0,
+        "distance_unit": "cm",
+        "adjacent_motion_seconds": 0.1,
+        "mean_speed": 100.0,
+        "speed_unit": "cm/s",
+        "quadrant_seconds": {
+          "NW": 0.2,
+          "NE": 0.0,
+          "SW": 0.0,
+          "SE": 0.0
+        },
+        "quadrant_observed_percent": {
+          "NW": 100.0,
+          "NE": 0.0,
+          "SW": 0.0,
+          "SE": 0.0
+        },
+        "quadrant_full_trial_percent_bounds": {
+          "NW": [
+            100.0,
+            100.0
+          ],
+          "NE": [
+            0.0,
+            0.0
+          ],
+          "SW": [
+            0.0,
+            0.0
+          ],
+          "SE": [
+            0.0,
+            0.0
+          ]
+        },
+        "wall_observed_percent": 0.0,
+        "wall_boundary": 0.8,
+        "target_quadrant": null,
+        "target_observed_percent": null,
+        "target_full_trial_percent_lower_bound": null,
+        "target_full_trial_percent_upper_bound": null,
+        "platform_site_seconds": null,
+        "platform_site_entries": null,
+        "first_site_visit_seconds": null,
+        "mean_proximity_diameters": null,
+        "site_visit_time": null,
+        "site_visit_observed": null,
+        "site_visit_status": "not_configured",
+        "first_visit_lower_seconds": null,
+        "first_visit_upper_seconds": null,
+        "endpoint_eligibility": {
+          "target_observed_percent": false,
+          "wall_observed_percent": true,
+          "distance": true,
+          "mean_speed": true,
+          "mean_proximity_diameters": false,
+          "platform_site_entries": false,
+          "first_site_visit_seconds": false
+        },
+        "endpoint_policy": "Scalar group comparisons require complete observation for whole-trial measurements. Occupancy bounds remain available with gaps. First-event timing requires complete history through that event; no-visit censoring requires complete trial history."
+      }
+    },
+    {
+      "name": "missing_does_not_bridge",
+      "metadata": {
+        "width": 200,
+        "height": 200,
+        "fps": 10,
+        "frame_count": 10,
+        "duration_seconds": 1
+      },
+      "settings": {
+        "cx": 0.5,
+        "cy": 0.5,
+        "rx": 0.4,
+        "ry": 0.4,
+        "threshold": 30,
+        "invert": true,
+        "blur": 2,
+        "min_area": 100,
+        "max_area": 6000,
+        "max_extension": 150,
+        "max_jump": 50,
+        "diameter_cm": null,
+        "start_seconds": 0,
+        "end_seconds": null,
+        "platform": null,
+        "wall_boundary": 0.8,
+        "arena_confirmed": true
+      },
+      "points": [
+        [
+          0,
+          80,
+          80,
+          "tracked",
+          1
+        ],
+        [
+          1,
+          null,
+          null,
+          "missing",
+          0
+        ],
+        [
+          2,
+          120,
+          120,
+          "tracked",
+          1
+        ]
+      ],
+      "expected": {
+        "total_frames": 3,
+        "tracked_frames": 2,
+        "coverage_percent": 66.66666666666667,
+        "duration_seconds": 0.3,
+        "tracked_seconds": 0.2,
+        "unknown_seconds": 0.1,
+        "status_counts": {
+          "tracked": 2,
+          "missing": 1
+        },
+        "longest_gap_seconds": 0.1,
+        "distance": 0,
+        "distance_unit": "pool diameters",
+        "adjacent_motion_seconds": 0.0,
+        "mean_speed": null,
+        "speed_unit": "pool diameters/s",
+        "quadrant_seconds": {
+          "NW": 0.1,
+          "NE": 0.0,
+          "SW": 0.0,
+          "SE": 0.1
+        },
+        "quadrant_observed_percent": {
+          "NW": 50.0,
+          "NE": 0.0,
+          "SW": 0.0,
+          "SE": 50.0
+        },
+        "quadrant_full_trial_percent_bounds": {
+          "NW": [
+            33.333333333333336,
+            66.66666666666667
+          ],
+          "NE": [
+            0.0,
+            33.333333333333336
+          ],
+          "SW": [
+            0.0,
+            33.333333333333336
+          ],
+          "SE": [
+            33.333333333333336,
+            66.66666666666667
+          ]
+        },
+        "wall_observed_percent": 0.0,
+        "wall_boundary": 0.8,
+        "target_quadrant": null,
+        "target_observed_percent": null,
+        "target_full_trial_percent_lower_bound": null,
+        "target_full_trial_percent_upper_bound": null,
+        "platform_site_seconds": null,
+        "platform_site_entries": null,
+        "first_site_visit_seconds": null,
+        "mean_proximity_diameters": null,
+        "site_visit_time": null,
+        "site_visit_observed": null,
+        "site_visit_status": "not_configured",
+        "first_visit_lower_seconds": null,
+        "first_visit_upper_seconds": null,
+        "endpoint_eligibility": {
+          "target_observed_percent": false,
+          "wall_observed_percent": false,
+          "distance": false,
+          "mean_speed": false,
+          "mean_proximity_diameters": false,
+          "platform_site_entries": false,
+          "first_site_visit_seconds": false
+        },
+        "endpoint_policy": "Scalar group comparisons require complete observation for whole-trial measurements. Occupancy bounds remain available with gaps. First-event timing requires complete history through that event; no-visit censoring requires complete trial history."
+      }
+    },
+    {
+      "name": "exclusive_quadrant_boundaries",
+      "metadata": {
+        "width": 200,
+        "height": 200,
+        "fps": 10,
+        "frame_count": 10,
+        "duration_seconds": 1
+      },
+      "settings": {
+        "cx": 0.5,
+        "cy": 0.5,
+        "rx": 0.4,
+        "ry": 0.4,
+        "threshold": 30,
+        "invert": true,
+        "blur": 2,
+        "min_area": 100,
+        "max_area": 6000,
+        "max_extension": 150,
+        "max_jump": 50,
+        "diameter_cm": null,
+        "start_seconds": 0,
+        "end_seconds": null,
+        "platform": null,
+        "wall_boundary": 0.8,
+        "arena_confirmed": true
+      },
+      "points": [
+        [
+          0,
+          100,
+          100,
+          "tracked",
+          1
+        ],
+        [
+          1,
+          99,
+          100,
+          "tracked",
+          1
+        ],
+        [
+          2,
+          100,
+          99,
+          "tracked",
+          1
+        ],
+        [
+          3,
+          99,
+          99,
+          "tracked",
+          1
+        ]
+      ],
+      "expected": {
+        "total_frames": 4,
+        "tracked_frames": 4,
+        "coverage_percent": 100.0,
+        "duration_seconds": 0.4,
+        "tracked_seconds": 0.4,
+        "unknown_seconds": 0.0,
+        "status_counts": {
+          "tracked": 4
+        },
+        "longest_gap_seconds": 0.0,
+        "distance": 0.021338834764831845,
+        "distance_unit": "pool diameters",
+        "adjacent_motion_seconds": 0.3,
+        "mean_speed": 0.07112944921610616,
+        "speed_unit": "pool diameters/s",
+        "quadrant_seconds": {
+          "NW": 0.1,
+          "NE": 0.1,
+          "SW": 0.1,
+          "SE": 0.1
+        },
+        "quadrant_observed_percent": {
+          "NW": 25.0,
+          "NE": 25.0,
+          "SW": 25.0,
+          "SE": 25.0
+        },
+        "quadrant_full_trial_percent_bounds": {
+          "NW": [
+            25.0,
+            25.0
+          ],
+          "NE": [
+            25.0,
+            25.0
+          ],
+          "SW": [
+            25.0,
+            25.0
+          ],
+          "SE": [
+            25.0,
+            25.0
+          ]
+        },
+        "wall_observed_percent": 0.0,
+        "wall_boundary": 0.8,
+        "target_quadrant": null,
+        "target_observed_percent": null,
+        "target_full_trial_percent_lower_bound": null,
+        "target_full_trial_percent_upper_bound": null,
+        "platform_site_seconds": null,
+        "platform_site_entries": null,
+        "first_site_visit_seconds": null,
+        "mean_proximity_diameters": null,
+        "site_visit_time": null,
+        "site_visit_observed": null,
+        "site_visit_status": "not_configured",
+        "first_visit_lower_seconds": null,
+        "first_visit_upper_seconds": null,
+        "endpoint_eligibility": {
+          "target_observed_percent": false,
+          "wall_observed_percent": true,
+          "distance": true,
+          "mean_speed": true,
+          "mean_proximity_diameters": false,
+          "platform_site_entries": false,
+          "first_site_visit_seconds": false
+        },
+        "endpoint_policy": "Scalar group comparisons require complete observation for whole-trial measurements. Occupancy bounds remain available with gaps. First-event timing requires complete history through that event; no-visit censoring requires complete trial history."
+      }
+    },
+    {
+      "name": "uncertain_no_visit",
+      "metadata": {
+        "width": 200,
+        "height": 200,
+        "fps": 10,
+        "frame_count": 10,
+        "duration_seconds": 1
+      },
+      "settings": {
+        "cx": 0.5,
+        "cy": 0.5,
+        "rx": 0.4,
+        "ry": 0.4,
+        "threshold": 30,
+        "invert": true,
+        "blur": 2,
+        "min_area": 100,
+        "max_area": 6000,
+        "max_extension": 150,
+        "max_jump": 50,
+        "diameter_cm": null,
+        "start_seconds": 0,
+        "end_seconds": null,
+        "platform": {
+          "x": 0.7,
+          "y": 0.3,
+          "radius": 0.02
+        },
+        "wall_boundary": 0.8,
+        "arena_confirmed": true
+      },
+      "points": [
+        [
+          0,
+          80,
+          120,
+          "tracked",
+          1
+        ],
+        [
+          1,
+          null,
+          null,
+          "missing",
+          0
+        ],
+        [
+          2,
+          80,
+          120,
+          "tracked",
+          1
+        ]
+      ],
+      "expected": {
+        "total_frames": 3,
+        "tracked_frames": 2,
+        "coverage_percent": 66.66666666666667,
+        "duration_seconds": 0.3,
+        "tracked_seconds": 0.2,
+        "unknown_seconds": 0.1,
+        "status_counts": {
+          "tracked": 2,
+          "missing": 1
+        },
+        "longest_gap_seconds": 0.1,
+        "distance": 0,
+        "distance_unit": "pool diameters",
+        "adjacent_motion_seconds": 0.0,
+        "mean_speed": null,
+        "speed_unit": "pool diameters/s",
+        "quadrant_seconds": {
+          "NW": 0.0,
+          "NE": 0.0,
+          "SW": 0.2,
+          "SE": 0.0
+        },
+        "quadrant_observed_percent": {
+          "NW": 0.0,
+          "NE": 0.0,
+          "SW": 100.0,
+          "SE": 0.0
+        },
+        "quadrant_full_trial_percent_bounds": {
+          "NW": [
+            0.0,
+            33.333333333333336
+          ],
+          "NE": [
+            0.0,
+            33.333333333333336
+          ],
+          "SW": [
+            66.66666666666667,
+            100.00000000000001
+          ],
+          "SE": [
+            0.0,
+            33.333333333333336
+          ]
+        },
+        "wall_observed_percent": 0.0,
+        "wall_boundary": 0.8,
+        "target_quadrant": "NE",
+        "target_observed_percent": 0.0,
+        "target_full_trial_percent_lower_bound": 0.0,
+        "target_full_trial_percent_upper_bound": 33.333333333333336,
+        "platform_site_seconds": 0.0,
+        "platform_site_entries": 0,
+        "first_site_visit_seconds": null,
+        "mean_proximity_diameters": 0.5303300858899106,
+        "site_visit_time": null,
+        "site_visit_observed": null,
+        "site_visit_status": "visit_history_indeterminate",
+        "first_visit_lower_seconds": 0.1,
+        "first_visit_upper_seconds": null,
+        "endpoint_eligibility": {
+          "target_observed_percent": false,
+          "wall_observed_percent": false,
+          "distance": false,
+          "mean_speed": false,
+          "mean_proximity_diameters": false,
+          "platform_site_entries": false,
+          "first_site_visit_seconds": false
+        },
+        "endpoint_policy": "Scalar group comparisons require complete observation for whole-trial measurements. Occupancy bounds remain available with gaps. First-event timing requires complete history through that event; no-visit censoring requires complete trial history."
+      }
+    },
+    {
+      "name": "uncertain_first_observed_visit",
+      "metadata": {
+        "width": 200,
+        "height": 200,
+        "fps": 10,
+        "frame_count": 10,
+        "duration_seconds": 1
+      },
+      "settings": {
+        "cx": 0.5,
+        "cy": 0.5,
+        "rx": 0.4,
+        "ry": 0.4,
+        "threshold": 30,
+        "invert": true,
+        "blur": 2,
+        "min_area": 100,
+        "max_area": 6000,
+        "max_extension": 150,
+        "max_jump": 50,
+        "diameter_cm": null,
+        "start_seconds": 0,
+        "end_seconds": null,
+        "platform": {
+          "x": 0.7,
+          "y": 0.3,
+          "radius": 0.02
+        },
+        "wall_boundary": 0.8,
+        "arena_confirmed": true
+      },
+      "points": [
+        [
+          0,
+          80,
+          120,
+          "tracked",
+          1
+        ],
+        [
+          1,
+          null,
+          null,
+          "missing",
+          0
+        ],
+        [
+          2,
+          140,
+          60,
+          "tracked",
+          1
+        ]
+      ],
+      "expected": {
+        "total_frames": 3,
+        "tracked_frames": 2,
+        "coverage_percent": 66.66666666666667,
+        "duration_seconds": 0.3,
+        "tracked_seconds": 0.2,
+        "unknown_seconds": 0.1,
+        "status_counts": {
+          "tracked": 2,
+          "missing": 1
+        },
+        "longest_gap_seconds": 0.1,
+        "distance": 0,
+        "distance_unit": "pool diameters",
+        "adjacent_motion_seconds": 0.0,
+        "mean_speed": null,
+        "speed_unit": "pool diameters/s",
+        "quadrant_seconds": {
+          "NW": 0.0,
+          "NE": 0.1,
+          "SW": 0.1,
+          "SE": 0.0
+        },
+        "quadrant_observed_percent": {
+          "NW": 0.0,
+          "NE": 50.0,
+          "SW": 50.0,
+          "SE": 0.0
+        },
+        "quadrant_full_trial_percent_bounds": {
+          "NW": [
+            0.0,
+            33.333333333333336
+          ],
+          "NE": [
+            33.333333333333336,
+            66.66666666666667
+          ],
+          "SW": [
+            33.333333333333336,
+            66.66666666666667
+          ],
+          "SE": [
+            0.0,
+            33.333333333333336
+          ]
+        },
+        "wall_observed_percent": 0.0,
+        "wall_boundary": 0.8,
+        "target_quadrant": "NE",
+        "target_observed_percent": 50.0,
+        "target_full_trial_percent_lower_bound": 33.333333333333336,
+        "target_full_trial_percent_upper_bound": 66.66666666666667,
+        "platform_site_seconds": 0.1,
+        "platform_site_entries": 0,
+        "first_site_visit_seconds": 0.2,
+        "mean_proximity_diameters": 0.2651650429449553,
+        "site_visit_time": null,
+        "site_visit_observed": null,
+        "site_visit_status": "earlier_visit_possible_in_gap",
+        "first_visit_lower_seconds": 0.1,
+        "first_visit_upper_seconds": 0.2,
+        "endpoint_eligibility": {
+          "target_observed_percent": false,
+          "wall_observed_percent": false,
+          "distance": false,
+          "mean_speed": false,
+          "mean_proximity_diameters": false,
+          "platform_site_entries": false,
+          "first_site_visit_seconds": false
+        },
+        "endpoint_policy": "Scalar group comparisons require complete observation for whole-trial measurements. Occupancy bounds remain available with gaps. First-event timing requires complete history through that event; no-visit censoring requires complete trial history."
+      }
+    },
+    {
+      "name": "known_visit_then_gap",
+      "metadata": {
+        "width": 200,
+        "height": 200,
+        "fps": 10,
+        "frame_count": 10,
+        "duration_seconds": 1
+      },
+      "settings": {
+        "cx": 0.5,
+        "cy": 0.5,
+        "rx": 0.4,
+        "ry": 0.4,
+        "threshold": 30,
+        "invert": true,
+        "blur": 2,
+        "min_area": 100,
+        "max_area": 6000,
+        "max_extension": 150,
+        "max_jump": 50,
+        "diameter_cm": null,
+        "start_seconds": 0,
+        "end_seconds": null,
+        "platform": {
+          "x": 0.7,
+          "y": 0.3,
+          "radius": 0.02
+        },
+        "wall_boundary": 0.8,
+        "arena_confirmed": true
+      },
+      "points": [
+        [
+          0,
+          80,
+          120,
+          "tracked",
+          1
+        ],
+        [
+          1,
+          140,
+          60,
+          "tracked",
+          1
+        ],
+        [
+          2,
+          null,
+          null,
+          "missing",
+          0
+        ]
+      ],
+      "expected": {
+        "total_frames": 3,
+        "tracked_frames": 2,
+        "coverage_percent": 66.66666666666667,
+        "duration_seconds": 0.3,
+        "tracked_seconds": 0.2,
+        "unknown_seconds": 0.1,
+        "status_counts": {
+          "tracked": 2,
+          "missing": 1
+        },
+        "longest_gap_seconds": 0.1,
+        "distance": 0.5303300858899106,
+        "distance_unit": "pool diameters",
+        "adjacent_motion_seconds": 0.1,
+        "mean_speed": 5.303300858899106,
+        "speed_unit": "pool diameters/s",
+        "quadrant_seconds": {
+          "NW": 0.0,
+          "NE": 0.1,
+          "SW": 0.1,
+          "SE": 0.0
+        },
+        "quadrant_observed_percent": {
+          "NW": 0.0,
+          "NE": 50.0,
+          "SW": 50.0,
+          "SE": 0.0
+        },
+        "quadrant_full_trial_percent_bounds": {
+          "NW": [
+            0.0,
+            33.333333333333336
+          ],
+          "NE": [
+            33.333333333333336,
+            66.66666666666667
+          ],
+          "SW": [
+            33.333333333333336,
+            66.66666666666667
+          ],
+          "SE": [
+            0.0,
+            33.333333333333336
+          ]
+        },
+        "wall_observed_percent": 0.0,
+        "wall_boundary": 0.8,
+        "target_quadrant": "NE",
+        "target_observed_percent": 50.0,
+        "target_full_trial_percent_lower_bound": 33.333333333333336,
+        "target_full_trial_percent_upper_bound": 66.66666666666667,
+        "platform_site_seconds": 0.1,
+        "platform_site_entries": 1,
+        "first_site_visit_seconds": 0.1,
+        "mean_proximity_diameters": 0.2651650429449553,
+        "site_visit_time": 0.1,
+        "site_visit_observed": true,
+        "site_visit_status": "observed_exact",
+        "first_visit_lower_seconds": 0.1,
+        "first_visit_upper_seconds": 0.1,
+        "endpoint_eligibility": {
+          "target_observed_percent": false,
+          "wall_observed_percent": false,
+          "distance": false,
+          "mean_speed": false,
+          "mean_proximity_diameters": false,
+          "platform_site_entries": false,
+          "first_site_visit_seconds": true
+        },
+        "endpoint_policy": "Scalar group comparisons require complete observation for whole-trial measurements. Occupancy bounds remain available with gaps. First-event timing requires complete history through that event; no-visit censoring requires complete trial history."
+      }
+    },
+    {
+      "name": "complete_right_censoring",
+      "metadata": {
+        "width": 200,
+        "height": 200,
+        "fps": 10,
+        "frame_count": 10,
+        "duration_seconds": 1
+      },
+      "settings": {
+        "cx": 0.5,
+        "cy": 0.5,
+        "rx": 0.4,
+        "ry": 0.4,
+        "threshold": 30,
+        "invert": true,
+        "blur": 2,
+        "min_area": 100,
+        "max_area": 6000,
+        "max_extension": 150,
+        "max_jump": 50,
+        "diameter_cm": null,
+        "start_seconds": 0,
+        "end_seconds": null,
+        "platform": {
+          "x": 0.7,
+          "y": 0.3,
+          "radius": 0.02
+        },
+        "wall_boundary": 0.8,
+        "arena_confirmed": true
+      },
+      "points": [
+        [
+          0,
+          80,
+          120,
+          "tracked",
+          1
+        ],
+        [
+          1,
+          82,
+          122,
+          "tracked",
+          1
+        ]
+      ],
+      "expected": {
+        "total_frames": 2,
+        "tracked_frames": 2,
+        "coverage_percent": 100.0,
+        "duration_seconds": 0.2,
+        "tracked_seconds": 0.2,
+        "unknown_seconds": 0.0,
+        "status_counts": {
+          "tracked": 2
+        },
+        "longest_gap_seconds": 0.0,
+        "distance": 0.017677669529663688,
+        "distance_unit": "pool diameters",
+        "adjacent_motion_seconds": 0.1,
+        "mean_speed": 0.17677669529663687,
+        "speed_unit": "pool diameters/s",
+        "quadrant_seconds": {
+          "NW": 0.0,
+          "NE": 0.0,
+          "SW": 0.2,
+          "SE": 0.0
+        },
+        "quadrant_observed_percent": {
+          "NW": 0.0,
+          "NE": 0.0,
+          "SW": 100.0,
+          "SE": 0.0
+        },
+        "quadrant_full_trial_percent_bounds": {
+          "NW": [
+            0.0,
+            0.0
+          ],
+          "NE": [
+            0.0,
+            0.0
+          ],
+          "SW": [
+            100.0,
+            100.0
+          ],
+          "SE": [
+            0.0,
+            0.0
+          ]
+        },
+        "wall_observed_percent": 0.0,
+        "wall_boundary": 0.8,
+        "target_quadrant": "NE",
+        "target_observed_percent": 0.0,
+        "target_full_trial_percent_lower_bound": 0.0,
+        "target_full_trial_percent_upper_bound": 0.0,
+        "platform_site_seconds": 0.0,
+        "platform_site_entries": 0,
+        "first_site_visit_seconds": null,
+        "mean_proximity_diameters": 0.5304773589048444,
+        "site_visit_time": 0.2,
+        "site_visit_observed": false,
+        "site_visit_status": "right_censored_complete",
+        "first_visit_lower_seconds": null,
+        "first_visit_upper_seconds": null,
+        "endpoint_eligibility": {
+          "target_observed_percent": true,
+          "wall_observed_percent": true,
+          "distance": true,
+          "mean_speed": true,
+          "mean_proximity_diameters": true,
+          "platform_site_entries": true,
+          "first_site_visit_seconds": true
+        },
+        "endpoint_policy": "Scalar group comparisons require complete observation for whole-trial measurements. Occupancy bounds remain available with gaps. First-event timing requires complete history through that event; no-visit censoring requires complete trial history."
+      }
+    },
+    {
+      "name": "observed_crossings_not_invented_after_gap",
+      "metadata": {
+        "width": 200,
+        "height": 200,
+        "fps": 10,
+        "frame_count": 10,
+        "duration_seconds": 1
+      },
+      "settings": {
+        "cx": 0.5,
+        "cy": 0.5,
+        "rx": 0.4,
+        "ry": 0.4,
+        "threshold": 30,
+        "invert": true,
+        "blur": 2,
+        "min_area": 100,
+        "max_area": 6000,
+        "max_extension": 150,
+        "max_jump": 50,
+        "diameter_cm": null,
+        "start_seconds": 0,
+        "end_seconds": null,
+        "platform": {
+          "x": 0.7,
+          "y": 0.3,
+          "radius": 0.02
+        },
+        "wall_boundary": 0.8,
+        "arena_confirmed": true
+      },
+      "points": [
+        [
+          0,
+          120,
+          60,
+          "tracked",
+          1
+        ],
+        [
+          1,
+          140,
+          60,
+          "tracked",
+          1
+        ],
+        [
+          2,
+          null,
+          null,
+          "missing",
+          0
+        ],
+        [
+          3,
+          140,
+          60,
+          "tracked",
+          1
+        ]
+      ],
+      "expected": {
+        "total_frames": 4,
+        "tracked_frames": 3,
+        "coverage_percent": 75.0,
+        "duration_seconds": 0.4,
+        "tracked_seconds": 0.3,
+        "unknown_seconds": 0.1,
+        "status_counts": {
+          "tracked": 3,
+          "missing": 1
+        },
+        "longest_gap_seconds": 0.1,
+        "distance": 0.125,
+        "distance_unit": "pool diameters",
+        "adjacent_motion_seconds": 0.1,
+        "mean_speed": 1.25,
+        "speed_unit": "pool diameters/s",
+        "quadrant_seconds": {
+          "NW": 0.0,
+          "NE": 0.3,
+          "SW": 0.0,
+          "SE": 0.0
+        },
+        "quadrant_observed_percent": {
+          "NW": 0.0,
+          "NE": 100.0,
+          "SW": 0.0,
+          "SE": 0.0
+        },
+        "quadrant_full_trial_percent_bounds": {
+          "NW": [
+            0.0,
+            25.0
+          ],
+          "NE": [
+            75.0,
+            100.0
+          ],
+          "SW": [
+            0.0,
+            25.0
+          ],
+          "SE": [
+            0.0,
+            25.0
+          ]
+        },
+        "wall_observed_percent": 0.0,
+        "wall_boundary": 0.8,
+        "target_quadrant": "NE",
+        "target_observed_percent": 100.0,
+        "target_full_trial_percent_lower_bound": 75.0,
+        "target_full_trial_percent_upper_bound": 100.0,
+        "platform_site_seconds": 0.2,
+        "platform_site_entries": 1,
+        "first_site_visit_seconds": 0.1,
+        "mean_proximity_diameters": 0.041666666666666664,
+        "site_visit_time": 0.1,
+        "site_visit_observed": true,
+        "site_visit_status": "observed_exact",
+        "first_visit_lower_seconds": 0.1,
+        "first_visit_upper_seconds": 0.1,
+        "endpoint_eligibility": {
+          "target_observed_percent": false,
+          "wall_observed_percent": false,
+          "distance": false,
+          "mean_speed": false,
+          "mean_proximity_diameters": false,
+          "platform_site_entries": false,
+          "first_site_visit_seconds": true
+        },
+        "endpoint_policy": "Scalar group comparisons require complete observation for whole-trial measurements. Occupancy bounds remain available with gaps. First-event timing requires complete history through that event; no-visit censoring requires complete trial history."
+      }
+    },
+    {
+      "name": "manual_and_excluded",
+      "metadata": {
+        "width": 200,
+        "height": 200,
+        "fps": 10,
+        "frame_count": 10,
+        "duration_seconds": 1
+      },
+      "settings": {
+        "cx": 0.5,
+        "cy": 0.5,
+        "rx": 0.4,
+        "ry": 0.4,
+        "threshold": 30,
+        "invert": true,
+        "blur": 2,
+        "min_area": 100,
+        "max_area": 6000,
+        "max_extension": 150,
+        "max_jump": 50,
+        "diameter_cm": null,
+        "start_seconds": 0,
+        "end_seconds": null,
+        "platform": null,
+        "wall_boundary": 0.8,
+        "arena_confirmed": true
+      },
+      "points": [
+        [
+          0,
+          80,
+          80,
+          "tracked",
+          1
+        ],
+        [
+          1,
+          96,
+          80,
+          "manual",
+          1
+        ],
+        [
+          2,
+          null,
+          null,
+          "excluded",
+          0
+        ]
+      ],
+      "expected": {
+        "total_frames": 3,
+        "tracked_frames": 2,
+        "coverage_percent": 66.66666666666667,
+        "duration_seconds": 0.3,
+        "tracked_seconds": 0.2,
+        "unknown_seconds": 0.1,
+        "status_counts": {
+          "tracked": 1,
+          "manual": 1,
+          "excluded": 1
+        },
+        "longest_gap_seconds": 0.1,
+        "distance": 0.1,
+        "distance_unit": "pool diameters",
+        "adjacent_motion_seconds": 0.1,
+        "mean_speed": 1.0,
+        "speed_unit": "pool diameters/s",
+        "quadrant_seconds": {
+          "NW": 0.2,
+          "NE": 0.0,
+          "SW": 0.0,
+          "SE": 0.0
+        },
+        "quadrant_observed_percent": {
+          "NW": 100.0,
+          "NE": 0.0,
+          "SW": 0.0,
+          "SE": 0.0
+        },
+        "quadrant_full_trial_percent_bounds": {
+          "NW": [
+            66.66666666666667,
+            100.00000000000001
+          ],
+          "NE": [
+            0.0,
+            33.333333333333336
+          ],
+          "SW": [
+            0.0,
+            33.333333333333336
+          ],
+          "SE": [
+            0.0,
+            33.333333333333336
+          ]
+        },
+        "wall_observed_percent": 0.0,
+        "wall_boundary": 0.8,
+        "target_quadrant": null,
+        "target_observed_percent": null,
+        "target_full_trial_percent_lower_bound": null,
+        "target_full_trial_percent_upper_bound": null,
+        "platform_site_seconds": null,
+        "platform_site_entries": null,
+        "first_site_visit_seconds": null,
+        "mean_proximity_diameters": null,
+        "site_visit_time": null,
+        "site_visit_observed": null,
+        "site_visit_status": "not_configured",
+        "first_visit_lower_seconds": null,
+        "first_visit_upper_seconds": null,
+        "endpoint_eligibility": {
+          "target_observed_percent": false,
+          "wall_observed_percent": false,
+          "distance": false,
+          "mean_speed": false,
+          "mean_proximity_diameters": false,
+          "platform_site_entries": false,
+          "first_site_visit_seconds": false
+        },
+        "endpoint_policy": "Scalar group comparisons require complete observation for whole-trial measurements. Occupancy bounds remain available with gaps. First-event timing requires complete history through that event; no-visit censoring requires complete trial history."
+      }
+    }
+  ]
+}

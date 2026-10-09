@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net10.0-windows</TargetFramework><UseWPF>true</UseWPF><PlatformTarget>x64</PlatformTarget><IsTestProject>false</IsTestProject></PropertyGroup>
+  <ItemGroup><ProjectReference Include="../MouseTrackerTabajara.Validation.Tests/MouseTrackerTabajara.Validation.Tests.csproj" /></ItemGroup>
+</Project>

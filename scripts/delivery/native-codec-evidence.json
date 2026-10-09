@@ -1,0 +1,102 @@
+{
+  "archives": [
+    {
+      "sha256": "F3DBB5EE8367F948AE4C90F09E8FAC703DC064AB4529BF854E208633A4E9E3C7",
+      "role": "Upstream corresponding-source archive linked to matching binary commit.",
+      "name": "aom-src-v3.14.1.tar.xz",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_3rdparty/664c0098dcb47b361f20c1d6a518653c23f5f2b5/sources/build/aom/aom-src-v3.14.1.tar.xz",
+      "bytes": 4422784
+    },
+    {
+      "sha256": "65DCEBB9AB64DEA97F37BDD25A1B43DBA807CB8D7C67E9A111729D836354FD8C",
+      "role": "Upstream corresponding-source archive linked to matching binary commit.",
+      "name": "ffmpeg-src-n7.1.tar.xz",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_3rdparty/664c0098dcb47b361f20c1d6a518653c23f5f2b5/sources/build/ffmpeg/ffmpeg-src-n7.1.tar.xz",
+      "bytes": 10771472
+    },
+    {
+      "sha256": "60EA79EC7A99E5E7750482C1288B3A3015B4824DF45BE13BB208F3BD35DDE003",
+      "role": "Upstream corresponding-source archive linked to matching binary commit.",
+      "name": "libvpx-src-v1.16.0.tar.xz",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_3rdparty/664c0098dcb47b361f20c1d6a518653c23f5f2b5/sources/build/libvpx/libvpx-src-v1.16.0.tar.xz",
+      "bytes": 4389728
+    },
+    {
+      "sha256": "0040F94D11D0039505328A90B2FF48968DB873E9E7967307631BF40EF5679275",
+      "role": "Vendor source archive is empty; preserved as evidence. Supplement separately from stated official tag.",
+      "name": "openh264-api-headers-v2.5.0.tar.xz",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_3rdparty/664c0098dcb47b361f20c1d6a518653c23f5f2b5/sources/build/openh264/openh264-api-headers-v2.5.0.tar.xz",
+      "bytes": 32
+    },
+    {
+      "sha256": "8CA839350BBF7BE6BF10C82F538303D59718EBF71AEF32644C60132BD142F893",
+      "role": "Upstream corresponding-source archive linked to matching binary commit.",
+      "name": "opencv-videoio-ffmpeg.tar.xz",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_3rdparty/664c0098dcb47b361f20c1d6a518653c23f5f2b5/sources/opencv/opencv-videoio-ffmpeg.tar.xz",
+      "bytes": 37176
+    },
+    {
+      "sha256": "B8ED5B293311441DE369160F047F277B606452FB604F5C35A7EA1EDCB3BA6539",
+      "role": "Upstream corresponding-source archive linked to matching binary commit.",
+      "name": "opencv_ffmpeg.tar.xz",
+      "url": "https://raw.githubusercontent.com/opencv/opencv_3rdparty/664c0098dcb47b361f20c1d6a518653c23f5f2b5/sources/opencv_ffmpeg.tar.xz",
+      "bytes": 16956
+    }
+  ],
+  "plugin_opencv_commit": "a0a660fcb1e58a295e6caa6aee64ed4d369b0181",
+  "libvpx_tag": "v1.16.0",
+  "header_supplements": [
+    {
+      "sha256": "21F29B20C24F7C7946F2E243D0BC2532FB3542F6C28AF338209477E70D9036C9",
+      "name": "codec_api.h",
+      "url": "https://raw.githubusercontent.com/cisco/openh264/8c7008aeb6335e7d36ab0d9a023a63f82a8eaac0/codec/api/wels/codec_api.h",
+      "bytes": 21178
+    },
+    {
+      "sha256": "FFD9561A96B4290DADDCE67B23F1D4839568BFE73531F0309215AB64BB7F5580",
+      "name": "codec_app_def.h",
+      "url": "https://raw.githubusercontent.com/cisco/openh264/8c7008aeb6335e7d36ab0d9a023a63f82a8eaac0/codec/api/wels/codec_app_def.h",
+      "bytes": 32852
+    },
+    {
+      "sha256": "F974D269B5935E8DC7265B8BFC02F60E5185B4D6165D30541D2758A4506F1979",
+      "name": "codec_def.h",
+      "url": "https://raw.githubusercontent.com/cisco/openh264/8c7008aeb6335e7d36ab0d9a023a63f82a8eaac0/codec/api/wels/codec_def.h",
+      "bytes": 7630
+    },
+    {
+      "sha256": "818E022A59B896837D28D485C1D29B2C586E31D72AD3BCF50994EE3A5A6FAB54",
+      "name": "codec_ver.h",
+      "url": "https://raw.githubusercontent.com/cisco/openh264/8c7008aeb6335e7d36ab0d9a023a63f82a8eaac0/codec/api/wels/codec_ver.h",
+      "bytes": 420
+    },
+    {
+      "sha256": "DD5C1C9668512530FA5A96E4C29AC4033D70A7EEB0EED7A42FDDB6DD794EBDBB",
+      "name": "LICENSE",
+      "url": "https://raw.githubusercontent.com/cisco/openh264/8c7008aeb6335e7d36ab0d9a023a63f82a8eaac0/LICENSE",
+      "bytes": 1295
+    }
+  ],
+  "expected_ffmpeg_sha256": "7AABFF029D1FA47CF56EDE4DBBE05DC62DA3208F07CD16471D4C966A33F9AA31",
+  "clean_windows_gate": "UNRUN",
+  "factual_gate": "CODEC_BINARY_AND_PUBLISHED_SOURCE_IDENTIFIED",
+  "ffmpeg_binary_commit": "06dc20cad65dc7fcf784f70c95d46750520889a7",
+  "status": "OPEN_COMPLETE_NATIVE_SOURCE_COMPLIANCE",
+  "ffmpeg_tag": "n7.1",
+  "schema": 1,
+  "missing_evidence": [
+    "Upstream OpenH264 source archive is empty; supplement is official recipe-tag source, not proof of exact originally compiled headers.",
+    "Exact MinGW/GCC runtime/toolchain source and installed package-version manifest for static runtime linkage are absent.",
+    "No rebuild equivalence, relink test or legal compliance determination performed.",
+    "Published plugin OpenCV archive contains only LICENSE and four FFmpeg headers; the recipe additionally builds OpenCV core/imgproc/videoio. Full OpenCV source commit is identified but full plugin OpenCV source is not included in this codec bundle."
+  ],
+  "openh264_headers_tag": "v2.5.0",
+  "openh264_headers_commit": "8c7008aeb6335e7d36ab0d9a023a63f82a8eaac0",
+  "expected_opencvextern_sha256": "0EC75DB779FD13D528AF949EB135225CF155B534DA40601E179161740A2357BB",
+  "aom_tag": "v3.14.1",
+  "opencvsharp_commit": "d8fc8914e09b43fe6e2ec71c1e376aef5188acf1",
+  "opencv_commit": "40738fb16ceddb5fb3fea747585f7ce6abb0605b",
+  "expected_upstream_md5": "a821a1135251859655090c795af05789",
+  "ffmpeg_source_commit": "664c0098dcb47b361f20c1d6a518653c23f5f2b5"
+}
+

@@ -1,0 +1,901 @@
+{
+  "product": "Mouse Tracker Tabajara native WPF for Windows",
+  "version": 1,
+  "total_points": 1000,
+  "scoring": "Only a completed step with acceptance evidence earns its fixed points. In-progress code earns zero until verified; weights are not silently changed.",
+  "estimates": "Best-case and realistic work-hour budgets use existing source reuse. They are planning estimates, not elapsed AI runtime or guaranteed calendar dates. Human validation effort is included; waiting for data/reviewer availability is excluded.",
+  "external_dependencies": [
+    "Remaining real videos",
+    "Confirmed mouse/group/trial protocol",
+    "Independent manual reference and reviewer availability",
+    "Clean Windows validation environment",
+    "Trusted signing certificate if signing is requested"
+  ],
+  "phases": [
+    {
+      "id": "A",
+      "title": "Foundation and source contracts",
+      "steps": [
+        {
+          "id": "A1",
+          "title": "Audit source, license and preserved reference",
+          "points": 15,
+          "best_hours": 0.5,
+          "realistic_hours": 1,
+          "depends_on": [],
+          "work": "Freeze DORIS commit, Python version, video hash and provenance. Keep GPL notices and a development/validation distinction.",
+          "acceptance": "Source inventory and provenance file match the actual checkout.",
+          "status": "complete",
+          "evidence": [
+            "docs/SOURCE-PROVENANCE.txt; preserved GPL license and original video hash"
+          ],
+          "difficulty": "Moderate"
+        },
+        {
+          "id": "A2",
+          "title": "Create the .NET 10 WPF solution and pin packages",
+          "points": 20,
+          "best_hours": 1,
+          "realistic_hours": 2,
+          "depends_on": [
+            "A1"
+          ],
+          "work": "Create Core, Tracking, Storage, Application, Desktop, CLI and Tests projects; pin managed/native OpenCV together and produce lockfiles.",
+          "acceptance": "Release build passes with zero warnings and native OpenCV loads.",
+          "status": "complete",
+          "evidence": [
+            "Release solution build: zero warnings/errors; pinned package lockfiles; OpenCV5 doctor passed"
+          ],
+          "difficulty": "Moderate"
+        },
+        {
+          "id": "A3",
+          "title": "Define typed study, frame and measurement contracts",
+          "points": 25,
+          "best_hours": 1.5,
+          "realistic_hours": 3,
+          "depends_on": [
+            "A1"
+          ],
+          "work": "Use explicit mouse, group, phase, day, trial and source identity. Define zero-based frame IDs, timestamps, point status, geometry, uncertainty and run versions.",
+          "acceptance": "Contracts serialize/round-trip and invalid settings are rejected.",
+          "status": "complete",
+          "evidence": [
+            "Typed contracts and 10 numerical fixture cases; invalid-settings validation passed"
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "A4",
+          "title": "Implement SQLite persistence and immutable runs",
+          "points": 25,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "A3"
+          ],
+          "work": "Store assets, analysis runs, correction overlays, reviews and audit records transactionally. Retain all completed runs and separate automatic data from edits.",
+          "acceptance": "Reopening preserves metadata; raw runs remain unchanged after corrections; duplicate content is detected.",
+          "status": "complete",
+          "evidence": [
+            "SQLite reopen, immutable-run, correction-overlay, duplicate-content and source-identity checks passed"
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "A5",
+          "title": "Freeze Python fixtures and reference coordinates",
+          "points": 15,
+          "best_hours": 1,
+          "realistic_hours": 2,
+          "depends_on": [
+            "A1",
+            "A3"
+          ],
+          "work": "Export numerical edge cases and all 1,879 source-video frame rows. Store input hashes and provenance; label these development fixtures.",
+          "acceptance": "Fixtures can be regenerated and verify the same original source hash.",
+          "status": "complete",
+          "evidence": [
+            "10 frozen metric cases, 11 frozen mask cases and all1879 Python reference rows generated"
+          ],
+          "difficulty": "Moderate"
+        },
+        {
+          "id": "A6",
+          "title": "Publish scored roadmap and acceptance ledger",
+          "points": 20,
+          "best_hours": 0.5,
+          "realistic_hours": 1,
+          "depends_on": [
+            "A1"
+          ],
+          "work": "Maintain this JSON, readable HTML/TXT, per-step evidence, hour budgets and fixed point weights. Distinguish implemented, verified and pending.",
+          "acceptance": "Weights sum to exactly 1,000; score recomputes solely from accepted completed steps.",
+          "status": "complete",
+          "evidence": [
+            "Authoritative JSON plus printableTXT/HTML; 42 steps; exactly1000 points; evidence-based score"
+          ],
+          "difficulty": "Easy"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "title": "Native detector and safe measurements",
+      "steps": [
+        {
+          "id": "B1",
+          "title": "Read video metadata and verify frame timing",
+          "points": 30,
+          "best_hours": 1.5,
+          "realistic_hours": 3,
+          "depends_on": [
+            "A2",
+            "A3"
+          ],
+          "work": "Decode with native FFmpeg/OpenCV. Retain presentation timestamps and canonical frame identity; fail closed when initial CFR semantics cannot be verified.",
+          "acceptance": "Known CFR frames agree with presentation timestamps; irregular timing is explicitly withheld.",
+          "status": "complete",
+          "evidence": [
+            "Original full video: all timestamps verified; maximum nominal PTS error7.105e-15seconds; irregular/NaN timing test passed"
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "B2",
+          "title": "Port grayscale, blur, threshold, inversion and arena",
+          "points": 25,
+          "best_hours": 1,
+          "realistic_hours": 2,
+          "depends_on": [
+            "B1",
+            "A5"
+          ],
+          "work": "Reproduce the working detector with the same image operations, border behavior and 160-point arena. Dispose native buffers.",
+          "acceptance": "Frozen image masks agree pixel-by-pixel with the reference settings.",
+          "status": "complete",
+          "evidence": [
+            "11 original image masks match pixel-for-pixel under the reference profile"
+          ],
+          "difficulty": "Moderate"
+        },
+        {
+          "id": "B3",
+          "title": "Port contours, object filters and centroids",
+          "points": 30,
+          "best_hours": 1,
+          "realistic_hours": 2,
+          "depends_on": [
+            "B2"
+          ],
+          "work": "Use external contours, moment centroids, area range and maximum coordinate extent. Preserve rounding/truncation behavior.",
+          "acceptance": "Synthetic and original-frame detections reproduce known positions and filter boundaries.",
+          "status": "complete",
+          "evidence": [
+            "All1879 accepted coordinate/status rows match; exact area/extent/centroid boundary checks passed"
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "B4",
+          "title": "Correct exclusion-mask polarity",
+          "points": 20,
+          "best_hours": 1,
+          "realistic_hours": 2,
+          "depends_on": [
+            "B2"
+          ],
+          "work": "Apply exclusions after threshold/inversion; prevent dark exclusions from becoming foreground. Validate normal and inverted polarity.",
+          "acceptance": "Excluded pixels remain background for both polarity settings.",
+          "status": "complete",
+          "evidence": [
+            "Exclusion masks tested for normal and inverted polarity; excluded pixels remain background"
+          ],
+          "difficulty": "Moderate"
+        },
+        {
+          "id": "B5",
+          "title": "Implement unknown, ambiguous and implausible-step states",
+          "points": 25,
+          "best_hours": 1.5,
+          "realistic_hours": 3,
+          "depends_on": [
+            "B3"
+          ],
+          "work": "Require single-object evidence; record tentative candidates separately. Reject implausible adjacent motion and never interpolate or bridge unknown gaps.",
+          "acceptance": "Ambiguity/gap/jump tests preserve unknown time and prevent invented displacement.",
+          "status": "complete",
+          "evidence": [
+            "Unknown states preserve explicit gaps; reference frames/statuses match; no displacement bridging"
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "B6",
+          "title": "Port spatial measurements, physical units and bounds",
+          "points": 25,
+          "best_hours": 3,
+          "realistic_hours": 6,
+          "depends_on": [
+            "B5",
+            "A5"
+          ],
+          "work": "Compute adjacent-pair path/speed, exclusive quadrants, wall time, proximity and site crossings. Retain whole-trial occupancy bounds and observed-time denominators.",
+          "acceptance": "Numerical reference cases pass with declared tolerance; quadrant plus unknown time equals trial duration.",
+          "status": "complete",
+          "evidence": [
+            "10 numerical fixtures pass; checked original path/time/quadrant summaries have zero differences"
+          ],
+          "difficulty": "Very hard"
+        },
+        {
+          "id": "B7",
+          "title": "Port endpoint-specific event-history safeguards",
+          "points": 25,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "B6"
+          ],
+          "work": "Distinguish exact observed first entry, complete no-entry censoring and histories with possible hidden visits. Withhold unsupported scalar endpoints.",
+          "acceptance": "A gap before a visit cannot create a false exact event; a gap after a known first visit does not invalidate its prior timing.",
+          "status": "complete",
+          "evidence": [
+            "Hidden-visit, complete-censoring, known-event-before-gap and endpoint-eligibility fixtures passed"
+          ],
+          "difficulty": "Very hard"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "title": "WPF review and annotation workflow",
+      "steps": [
+        {
+          "id": "C1",
+          "title": "Build the native WPF workspace and typed trial table",
+          "points": 25,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "A2",
+            "A3",
+            "A4"
+          ],
+          "work": "Create navigation, import actions, study table, live status and quality readouts with typed bindings and accessible focus.",
+          "acceptance": "The actual WPF application loads without binding/startup errors and renders a native study screen.",
+          "status": "complete",
+          "evidence": [
+            "Native WPF startup/render smoke exit0 with no logged binding errors; screenshot artifacts/wpf-smoke.png"
+          ],
+          "difficulty": "Moderate"
+        },
+        {
+          "id": "C2",
+          "title": "Synchronize frame viewing and trajectory overlays",
+          "points": 25,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "C1",
+            "B1",
+            "B5"
+          ],
+          "work": "Seek and step by canonical frame ID. Display the same pool, platform and accepted points used by analysis; show gaps without connecting lines.",
+          "acceptance": "A rendered known frame aligns its overlay with decoded geometry; seek/step identity is checked.",
+          "status": "complete",
+          "evidence": [
+            "Native image for frame150 and matching trajectory/marker geometry rendered and inspected"
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "C3",
+          "title": "Add pool, platform and calibration editing",
+          "points": 25,
+          "best_hours": 3,
+          "realistic_hours": 6,
+          "depends_on": [
+            "C2",
+            "B6"
+          ],
+          "work": "Provide pool bounds, platform center/size, physical diameter and confirmed geometry. Persist edits and invalidate incompatible prior review.",
+          "acceptance": "Pointer editing is verified at different display sizes/DPI; saved geometry reproduces the same measurement transform.",
+          "status": "complete",
+          "evidence": [
+            "Integrated104d502/b751652 and source-pinned viewer ca9875f;68 locked native checks pass. Controller actual WPF proof exit0 at artifacts/controller-r01-integration: saved geometry/measurement transform, site ellipse predicate, source clicks/letterbox at1050x700 and1440x960, bitmap/device DPI checks and confirmation invalidation. No live multi-monitor claim. See R01 REVIEW.md."
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "C4",
+          "title": "Add manual corrections and biological event annotations",
+          "points": 25,
+          "best_hours": 3,
+          "realistic_hours": 6,
+          "depends_on": [
+            "C2",
+            "A4",
+            "B7"
+          ],
+          "work": "Correct or exclude exact frames as overlays. Separately record water entry, platform mounting, intervention and recording end with reasons.",
+          "acceptance": "Corrections preserve raw data, recompute derived metrics and invalidate review; semantic events cannot be confused with region entry.",
+          "status": "complete",
+          "evidence": [
+            "Same integrated R01/controller evidence: exact source/frame corrections preserve raw JSON, recompute effective metrics, invalidate stored/bound review, and reject delayed-decode/recording-switch races. Distinct water-entry/mounting/intervention/recording-end event histories carry reviewer/reasons.68 native checks plus independently rerun WPF smoke pass; no accuracy claim."
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "C5",
+          "title": "Implement blinded review and pseudonymous identities",
+          "points": 25,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "C1",
+            "A4"
+          ],
+          "work": "Hide group labels, source filenames and identifying animal IDs during review. Retain stable aliases and an explicit unblinding record.",
+          "acceptance": "Blinded screens and review exports reveal neither treatment labels nor informative filenames.",
+          "status": "complete",
+          "evidence": [
+            "Integrated93889de/e343c30 + controller371230a: stored random aliases, safe short-label/authored-note projection, blinded allowlisted exports and reasoned unblinding audits.142 native tests + actual geometry/review WPF exit0 + collectionWPF3/3 pass. Pixels not redacted; see R02 REVIEW.",
+            "2026-10-09: stable blinded trial aliases across scenarios and outputs verified; maintained within existing accepted points."
+          ],
+          "difficulty": "Very hard"
+        },
+        {
+          "id": "C6",
+          "title": "Rank review moments by consequence and add random audits",
+          "points": 25,
+          "best_hours": 3,
+          "realistic_hours": 6,
+          "depends_on": [
+            "C2",
+            "B7"
+          ],
+          "work": "Prioritize uncertain event histories, suspicious crossings, contour changes and persistent detections; add deterministic random apparently-good segments.",
+          "acceptance": "Queue includes critical failures and random audits, with reasons and direct frame navigation; ranking is treatment-blind.",
+          "status": "complete",
+          "evidence": [
+            "Production ConsequenceReviewQueue integrated as1126adc; 49 primary native checks pass.",
+            "Native bound review buttons/next-frame handlers independently sought8/41 and stepped9/42, preserving source frame/clock, independent synthetic pixel signatures and overlay coordinates; S01 REVIEW and navigation proof in .workmap/validation/S01-source-navigation."
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "C7",
+          "title": "Record reviewed status and reasoned inclusion/exclusion",
+          "points": 20,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "C4",
+            "C5"
+          ],
+          "work": "Record inspection separately from endpoint eligibility. Require stated exclusion reasons and surface stale geometry/settings/source changes.",
+          "acceptance": "Coverage alone cannot approve accuracy or alter the biological trial window; exclusions remain visible.",
+          "status": "complete",
+          "evidence": [
+            "Explicit completed-source inspection attestation, revision/run binding, immutable ranking history and reasoned visible inclusion/exclusion implemented; stale/wrong-run/delayed/failed cases tested.142native and actual WPF smokes pass; no coverage-driven accuracy approval or trial trimming. See R02 REVIEW."
+          ],
+          "difficulty": "Hard"
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "title": "Batch processing and protocol management",
+      "steps": [
+        {
+          "id": "D1",
+          "title": "Import multiple videos and provisional mouse identities",
+          "points": 25,
+          "best_hours": 1.5,
+          "realistic_hours": 3,
+          "depends_on": [
+            "C1",
+            "A4"
+          ],
+          "work": "Import approximately 30 recordings with independent editable mouse IDs, groups, phases and trials. Detect duplicate bytes and moved sources.",
+          "acceptance": "Multi-import persists all unique recordings; duplicated content cannot count as a new mouse.",
+          "status": "complete",
+          "evidence": [
+            "30 unique synthetic assets persist; duplicate bytes return the original identity; editable provisional IDs in WPF"
+          ],
+          "difficulty": "Moderate"
+        },
+        {
+          "id": "D2",
+          "title": "Implement cancelable, restartable serial batch queue",
+          "points": 15,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "D1",
+            "B7"
+          ],
+          "work": "Run off the UI thread, preserve finished clips, cancel safely and reuse only matching source/settings runs. Resume at the video level.",
+          "acceptance": "Thirty synthetic clips complete; cancellation retains completed runs and a later queue resumes safely.",
+          "status": "complete",
+          "evidence": [
+            "30-video synthetic cancellation/resumption/replay checks passed; matching source/settings/algorithm contract required"
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "D3",
+          "title": "Define training/probe windows and confirmed onset rules",
+          "points": 30,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "D1",
+            "C4"
+          ],
+          "work": "Record protocol-defined release and termination. Suggest onset only for confirmation; support fixed probe exposure and outcome-dependent training termination.",
+          "acceptance": "Unequal probe windows are flagged; windows cannot be shortened merely to pass tracking criteria.",
+          "status": "complete",
+          "evidence": [
+            "Confirmed per-recording release anchors survive seek/edit/reopen, fixed probes vs training mounting/timeout, unequal probe/mixed-phase called flags, typed notes vs validity holds.142native + controller actual protocol/geometry WPF proof pass. Biological exposure never shortened for tracking; separate trial endpoints remain scoped. See R02 REVIEW."
+          ],
+          "difficulty": "Very hard"
+        },
+        {
+          "id": "D4",
+          "title": "Apply camera-specific presets with audit and invalidation",
+          "points": 15,
+          "best_hours": 1,
+          "realistic_hours": 2,
+          "depends_on": [
+            "C3",
+            "D3"
+          ],
+          "work": "Save/reuse detector and geometry profiles with camera/resolution identity. Confirm changed geometry and invalidate stale results.",
+          "acceptance": "Applying a profile never silently changes trial outcomes or accepts incompatible camera settings.",
+          "status": "complete",
+          "evidence": [
+            "Integrated native preset/calibrationdc4ef70/c5a3754. Controller camera11/11PASS with actual WPF preview/apply, camera/resolution/fiducial compatibility, nondefault decoder and biological-window preservation, audited settings/review invalidation; locked Release build0warnings/errors. See S06 REVIEW."
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "D5",
+          "title": "Handle failures, interrupted jobs and source integrity",
+          "points": 25,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "D2",
+            "A4"
+          ],
+          "work": "Record decoder errors and cancellations per clip; keep previous success intact. Verify input hashes before/after processing and recover after restart.",
+          "acceptance": "A failed or modified clip cannot publish a partial completed report or erase earlier evidence.",
+          "status": "complete",
+          "evidence": [
+            "Integrated P01 original/correction/report7ef32af/e658022/ef76b31; controller reviewed completion validator at publication/cache/restart, immediate append-only attempts/terminals, historical incompatibility, final-observer warnings and post-commit recovery. Locked all-Release build0warnings/errors and127 native checks pass, including two actual killed child-process tests and30 native synthetic sources/serial-parallel full evidence equivalence. Process-local lease and host/synthetic performance limits disclosed; see P01 REVIEW."
+          ],
+          "difficulty": "Very hard"
+        }
+      ]
+    },
+    {
+      "id": "E",
+      "title": "Animal atlas and temporal exploration",
+      "steps": [
+        {
+          "id": "E1",
+          "title": "Build the individual trajectory and playback atlas",
+          "points": 35,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "C2",
+            "D2"
+          ],
+          "work": "Show each mouse with its path, review state and source video; allow synchronized playback without hiding individual heterogeneity.",
+          "acceptance": "A visible group pattern can be traced to every contributing animal, including outliers.",
+          "status": "complete",
+          "evidence": [
+            "Integrated S04/S05 native atlas, technical synchronized source clock and confirmed-plan group-pattern route301911b. Root actual WPF3/3PASS31.55s:30 sources,16 animals, independent source pixel/marker traces for every contribution including outlier, current review/holds, frozen plan and stale/blind safeguards.1050x700 render visually checked; no real-study/accuracy inference claim. See S05 REVIEW."
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "E2",
+          "title": "Build common-scale, animal-equal occupancy comparisons",
+          "points": 35,
+          "best_hours": 3,
+          "realistic_hours": 6,
+          "depends_on": [
+            "E1",
+            "D3"
+          ],
+          "work": "Use common physical/normalized geometry, matched planned probe time and shared color scales. Average trials within mouse before group maps.",
+          "acceptance": "Duplicating a mouse trial cannot increase that mouse's group-map weight; unknown mass and contributing animals are explicit.",
+          "status": "complete",
+          "evidence": [
+            "D3 dependency accepted. Controller updated collection WPF3/3 and reviewed expected trial membership/equal-animal shared-scale maps:30sources/16animals with unequal repeats, independent outlier fraction1/(2*30*9), duplicate-source/identity/window/reference holds visible. See S05 REVIEW."
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "E3",
+          "title": "Build prespecified temporal profiles and across-day views",
+          "points": 25,
+          "best_hours": 3,
+          "realistic_hours": 6,
+          "depends_on": [
+            "B6",
+            "D3",
+            "E1"
+          ],
+          "work": "Plot proximity, occupancy, speed and wall behavior in planned bins. Distinguish within-animal learning from independent cohorts across days.",
+          "acceptance": "Plots retain mouse identity and exposure; censored first visits are not averaged as successful visits.",
+          "status": "complete",
+          "evidence": [
+            "S07 integrated2e113e1/9267458. Controller independent native WPF7/7 passes in artifacts/controller-temporal-integration/temporal-integration.trx; minimum1050x700 synthetic render inspected. Fractional bins, gap-safe motion, equal-animal weights, training absent exposure, censored/indeterminate first visits, repeated versus independent cohorts, source/privacy traces and asynchronous stale/cancel publication verified. Conditional development tooling, not real tracking accuracy; see S07 REVIEW."
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "E4",
+          "title": "Add measured calibration and camera-shift diagnostics",
+          "points": 15,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "C3",
+            "D4"
+          ],
+          "work": "Support measured water-plane landmarks and check camera displacement between clips. Preserve room and target-aligned orientations separately.",
+          "acceptance": "Known shifts/calibration errors are detected; unsupported projective assumptions are labeled.",
+          "status": "complete",
+          "evidence": [
+            "Called measured water-plane Fit/independent checks/profile replay, camera shift/rotation/scale diagnosis and corrected gap-safe room-cm output integrated. Controller11camera checks and synthetic minimum render pass; real measurements/lens/parallax/accuracy remain unvalidated. See S06 REVIEW."
+          ],
+          "difficulty": "Very hard"
+        }
+      ]
+    },
+    {
+      "id": "F",
+      "title": "Robustness and uncertainty exploration",
+      "steps": [
+        {
+          "id": "F1",
+          "title": "Show occupancy and group-difference uncertainty bounds",
+          "points": 20,
+          "best_hours": 1,
+          "realistic_hours": 2,
+          "depends_on": [
+            "B6",
+            "E2"
+          ],
+          "work": "Propagate unknown time to per-mouse occupancy bounds and conservative group-difference bounds, conditional on correct accepted positions.",
+          "acceptance": "Bounds widen with missing data, include known values and are not labeled confidence intervals.",
+          "status": "complete",
+          "evidence": [
+            "D3/E2 accepted. Per-animal known-to-known+unknown occupancy bounds and conservative group-difference bounds integrated; known values included, complete inputs zero width, unknown rows widen bounds; actual WPF3/3 passes. Conditional accepted-coordinate bounds, not confidence intervals. See S05 REVIEW."
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "F2",
+          "title": "Replay documented detector-setting scenarios",
+          "points": 35,
+          "best_hours": 3,
+          "realistic_hours": 6,
+          "depends_on": [
+            "D4",
+            "D5"
+          ],
+          "work": "Run prespecified plausible threshold/blur/size scenarios as versioned analyses; retain every scenario and execution failure.",
+          "acceptance": "Original analysis remains frozen; replay yields reproducible endpoint changes without selecting only favorable scenarios.",
+          "status": "complete",
+          "evidence": [
+            "Native detector workspace integratedbb873c6/4e49c70 and shared ownership65f97c8/2d6da69. Controller2/2 actual WPF/native/process/reparse lifecycle checks PASS in artifacts/controller-sensitivity-final/sensitivity-ownership.trx; earlier controller15CLI regressions pass. Original bytes remain frozen, seven documented scenario families and adverse/failed/unrun/missing/excluded cases retained, exact source/gap states verified, historical inventory authenticated. Actual exclusive handles prevent cross-window/process rollback or staging clobber; process-death/late rollback/reparse guards verified. Raw decoder scope remains explicit, no automatic biological N/accuracy/parameter winner. D4/D5 dependencies complete; see G04 REVIEW acceptance."
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "F3",
+          "title": "Replay platform/calibration uncertainty scenarios",
+          "points": 25,
+          "best_hours": 3,
+          "realistic_hours": 6,
+          "depends_on": [
+            "F1",
+            "E4"
+          ],
+          "work": "Vary measured region placement and geometry within documented plausible ranges; compare endpoint consequences.",
+          "acceptance": "Region/calibration scenario envelopes are distinct from sampling uncertainty and use disclosed ranges.",
+          "status": "complete",
+          "evidence": [
+            "Integrated2a68576/7b09468/9aae3ef; controller15/15 native region/calibration/source-free identity checks PASS in artifacts/controller-region-integration/region-integration.trx. Prespecified finite ranges/rationale, original bytes preserved, adverse/held cases, measured independent checks, confirmed event-aware windows and separate raw/window envelopes verified. Envelope is distinct from missing-position bounds and sampling uncertainty; conditional coordinate development tooling, not real biological accuracy. F1/E4 dependencies complete; see G05 REVIEW acceptance."
+          ],
+          "difficulty": "Very hard"
+        },
+        {
+          "id": "F4",
+          "title": "Produce an interpretable result-stability report",
+          "points": 20,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "F2",
+            "F3"
+          ],
+          "work": "Show which conclusions change direction or remain unsupported under scenarios, and identify animals/errors driving the change.",
+          "acceptance": "No causal memory score is invented; stable and unstable results link to source evidence.",
+          "status": "complete",
+          "evidence": [
+            "Integrated294ecce/5a1d8da with accepted F3 producer/resources and final F2 ownership API. Controller22/22 supported/native GUI/replay/publication checks PASS5s in artifacts/controller-stability-integration/stability-final-owner-api.trx; minimum supported outlier render inspected. Actual native stable/reversed/unknown/held/missing cases, equal-animal repeats, fixed membership envelopes, exact source/transform traces, immutable concurrent/partial publication and authenticated producer reconstruction/tamper rejection verified. Calibration unmatched-original reference is explicitly held; raw scope has no biological license. No causal memory score, sampling CI or real tracking-accuracy claim. F2/F3 dependencies complete; see S08 REVIEW acceptance.",
+            "2026-10-09: complete authenticated frozen case inventory, exact identities/scopes, omission/extra/duplicate/relocated-held rejection integrated; independent omission sign-reversal reproduced and fixed. Included in combined278-test receipt; no extra points."
+          ],
+          "difficulty": "Hard"
+        }
+      ]
+    },
+    {
+      "id": "G",
+      "title": "Scientific design, regression and validation",
+      "steps": [
+        {
+          "id": "G1",
+          "title": "Confirm study design and freeze primary comparisons",
+          "points": 20,
+          "best_hours": 1,
+          "realistic_hours": 2,
+          "depends_on": [
+            "D1",
+            "D3"
+          ],
+          "work": "Confirm unique animals, group allocation, cage/litter clustering, repeated trials and planned endpoints with Luciana. Label exploratory analysis explicitly.",
+          "acceptance": "A recorded design supports the experimental unit and primary comparisons; filename identity is not treated as confirmation.",
+          "status": "pending",
+          "evidence": [],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "G2",
+          "title": "Audit animal weights, units, windows and endpoint holds",
+          "points": 25,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "G1",
+            "B7",
+            "E2"
+          ],
+          "work": "Prevent duplicate/trial/group conflicts, mixed units, unequal probe exposure and silent complete-case endpoint selection.",
+          "acceptance": "Every included and held endpoint has an explicit denominator and reason; repeated videos cannot inflate biological N.",
+          "status": "pending",
+          "evidence": [],
+          "difficulty": "Very hard"
+        },
+        {
+          "id": "G3",
+          "title": "Verify C# masks, frame rows and numerical regression",
+          "points": 35,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "A5",
+            "B7",
+            "D2"
+          ],
+          "work": "Compare native masks, all original-video frame/status/coordinate rows and metric fixtures. Exercise storage, cancellation and export failure boundaries.",
+          "acceptance": "Coordinate joins and declared numerical tolerances pass; regression is labeled separately from accuracy validation.",
+          "status": "complete",
+          "evidence": [
+            "29 native checks passed; reference-comparison.json accepted all1879 rows with zero frame/status/coordinate and checked metric mismatches",
+            "2026-10-09: combined Release0warnings/errors;278/278 across9projects,0failed/skipped, source9e4e55b, artifacts/tests/20261009-121651-733-03e4896f. Regression/tooling evidence, not real independent accuracy."
+          ],
+          "difficulty": "Hard"
+        },
+        {
+          "id": "G4",
+          "title": "Validate on held-out real videos with manual reference",
+          "points": 40,
+          "best_hours": 8,
+          "realistic_hours": 20,
+          "depends_on": [
+            "G1",
+            "G3"
+          ],
+          "work": "Obtain remaining videos; separate tuning and validation by recording/session. Annotate random frames and difficult continuous intervals; second-review a subset.",
+          "acceptance": "Prespecified position/event/endpoint tolerances pass on held-out data; unresolved endpoint-critical ambiguity is disclosed.",
+          "status": "pending",
+          "evidence": [],
+          "preparation_evidence": [
+            "Native independent reference/sampling/second-review tooling; separate declared role summaries; raw/corrected target separation; distinct failure-episode sampling; independent synthetic boundary and native replay proofs. Actual independent recordings/researcher tolerances/reference remain missing; no G4 points."
+          ],
+          "difficulty": "Very hard"
+        },
+        {
+          "id": "G5",
+          "title": "Audit failure/exclusion bias and interpretation limits",
+          "points": 20,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "G2",
+            "G4",
+            "F4"
+          ],
+          "work": "Inspect tracking errors, uncertainty and exclusions by group after blinded review. Examine spatial endpoints together with motor/visible-platform context.",
+          "acceptance": "Differential failures cannot silently create a group result; scientific conclusions stay within validated measurements.",
+          "status": "pending",
+          "evidence": [],
+          "difficulty": "Very hard"
+        }
+      ]
+    },
+    {
+      "id": "H",
+      "title": "Windows delivery and reproducible evidence",
+      "steps": [
+        {
+          "id": "H1",
+          "title": "Provide developer launch and native smoke checks",
+          "points": 10,
+          "best_hours": 1,
+          "realistic_hours": 2,
+          "depends_on": [
+            "C1",
+            "C2"
+          ],
+          "work": "Build a usable WPF executable and launcher; run an unattended startup/render check and save diagnostics.",
+          "acceptance": "Native startup succeeds and a real-data WPF screenshot is saved.",
+          "status": "complete",
+          "evidence": [
+            "Release WPF executable, developer launcher and unattended native render/startup checks completed"
+          ],
+          "difficulty": "Easy"
+        },
+        {
+          "id": "H2",
+          "title": "Publish self-contained Windows x64 distribution",
+          "points": 20,
+          "best_hours": 1.5,
+          "realistic_hours": 3,
+          "depends_on": [
+            "H1",
+            "D5"
+          ],
+          "work": "Package the app/runtime/native libraries, license and instructions without a Python dependency. Test deployment on a clean Windows environment.",
+          "acceptance": "A clean Windows machine opens a study and analyzes a known recording without developer tools.",
+          "status": "pending",
+          "evidence": [],
+          "preparation_evidence": [
+            "Immutable self-contained dev7 archive source9e4e55b, extracted Unicode/space PS5.1 installed-host synthetic/WPF/runtime checks PASS. Clean Windows remains UNRUN; no H2 points."
+          ],
+          "difficulty": "Moderate"
+        },
+        {
+          "id": "H3",
+          "title": "Package installer/update path and release identity",
+          "points": 15,
+          "best_hours": 2,
+          "realistic_hours": 4,
+          "depends_on": [
+            "H2"
+          ],
+          "work": "Provide versioned installation or portable ZIP and documented update/rollback. Add signing when a trusted certificate is available.",
+          "acceptance": "Upgrading preserves projects and can be rolled back; release provenance and licenses accompany binaries.",
+          "status": "pending",
+          "evidence": [],
+          "preparation_evidence": [
+            "Dev6-to-dev7 copied-study transition PASS, original/backup preserved; versioned archive/hash/source/notices retained. H2 dependency and final release acceptance remain pending."
+          ],
+          "difficulty": "Very hard"
+        },
+        {
+          "id": "H4",
+          "title": "Finish replayable reports, recovery and usability validation",
+          "points": 25,
+          "best_hours": 9,
+          "realistic_hours": 18,
+          "depends_on": [
+            "G5",
+            "H2"
+          ],
+          "work": "Benchmark a pinned thirty-recording workload; cache validated runs and indexed joins; virtualize result lists with selected-frame details and compact role summaries; preserve numerical, blinding and cancellation behavior. Freeze reproducible reports, verify crash/update recovery and obtain researcher usability/sign-off on the actual study.",
+          "acceptance": "The release report reproduces from saved inputs, failures recover, and researcher sign-off is recorded.",
+          "status": "pending",
+          "evidence": [],
+          "estimate_revision": "2026-10-09: add7 best/14 realistic work hours for the prepared O01 GUI/performance task to the original2/4-hour final usability/report acceptance budget. Fixed25-point award and original G5/H2 acceptance dependencies unchanged. Code preparation may proceed before those final acceptance dependencies.",
+          "execution_substeps": [
+            {
+              "id": "H4.a",
+              "work": "Pinned thirty-recording baseline and input/assembly manifest verification",
+              "best_hours": 1,
+              "realistic_hours": 2,
+              "status": "prepared; full benchmark unrun",
+              "additional_points": 0
+            },
+            {
+              "id": "H4.b",
+              "work": "Materialize validated runs once and index frame/reference/event joins",
+              "best_hours": 1.5,
+              "realistic_hours": 3,
+              "status": "prepared; O01 held",
+              "additional_points": 0
+            },
+            {
+              "id": "H4.c",
+              "work": "Native virtualized results and selected-frame detail/navigation",
+              "best_hours": 2,
+              "realistic_hours": 4,
+              "status": "prepared; O01 held",
+              "additional_points": 0
+            },
+            {
+              "id": "H4.d",
+              "work": "Compact role cards, secondary pooled figure and accessible audit details",
+              "best_hours": 1,
+              "realistic_hours": 2,
+              "status": "queued from synthetic GUI review",
+              "additional_points": 0
+            },
+            {
+              "id": "H4.e",
+              "work": "Numerical/privacy/cancellation equivalence and measured before-after benchmark",
+              "best_hours": 1.5,
+              "realistic_hours": 3,
+              "status": "pending changes; no speed claim",
+              "additional_points": 0
+            },
+            {
+              "id": "H4.f",
+              "work": "Actual-study replay/recovery/usability and researcher-recorded sign-off",
+              "best_hours": 2,
+              "realistic_hours": 4,
+              "status": "pending G5/H2 and researcher",
+              "additional_points": 0
+            }
+          ],
+          "difficulty": "Hard"
+        }
+      ]
+    }
+  ],
+  "progress": {
+    "earned_points": 835,
+    "total_points": 1000,
+    "global_percent": 83.5,
+    "accepted_steps": 35,
+    "total_steps": 42,
+    "total_best_hours": 90.5,
+    "total_realistic_hours": 185,
+    "remaining_best_hours": 25.5,
+    "remaining_realistic_hours": 55,
+    "as_of": "2026-10-09 09:47 PDT"
+  },
+  "revision_note": "2026-10-09 roadmap refresh: fixed42primary steps/1000points and statuses preserved; current verified development evidence added; H4 hour budget revised transparently for prepared GUI/performance work. Substeps carry no additional points.",
+  "current_delivery_roadmap": "docs/DELIVERY-ROADMAP.json",
+  "protocol_structure_confirmed": {
+    "groups": [
+      "treated wildtype",
+      "vehicle wildtype",
+      "treated mutant",
+      "vehicle mutant"
+    ],
+    "days": 6,
+    "training_trials_per_day": 4,
+    "training_days": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "probe_day": 6,
+    "probe_trials": 1,
+    "expected_videos_per_animal": 21,
+    "video_is_one_trial": true,
+    "animal_is_repeated": true
+  }
+}

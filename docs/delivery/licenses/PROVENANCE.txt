@@ -1,0 +1,7 @@
+License copies:
+OpenCvSharp-APACHE-2.0.txt retrieved from the repository commit declared in NuGet:
+https://raw.githubusercontent.com/shimat/opencvsharp/d8fc8914e09b43fe6e2ec71c1e376aef5188acf1/LICENSE
+APACHE-2.0.txt is the canonical license text:
+https://www.apache.org/licenses/LICENSE-2.0.txt
+The package manifest hashes these exact files. This does not close the bundled
+native component/FFmpeg license and corresponding-source audit.

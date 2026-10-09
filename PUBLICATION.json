@@ -1,0 +1,9 @@
+{
+  "publication": "Clean public source snapshot without private Git history",
+  "repository": "pcarvalho75/RatoObservatorTabajara",
+  "release": "v0.1.0-dev.12",
+  "original_source_commit": "8345a609f4877f677b46013d4ea18494a33b2695",
+  "original_corresponding_source_sha256": "b627bc4dc23cb64f8d9bb98dd7614b0c1ed267f801abb40fa97c5e556103f260",
+  "windows_zip_sha256": "fd963c5eab64622d48635629a3cfbf2326fe3b27df49e330f1734b1f16955e2d",
+  "changes": "Public README, documentation and sanitized validation summary; src/features/tests code unchanged."
+}

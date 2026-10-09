@@ -1,0 +1,57 @@
+[
+  {
+    "frame": 170,
+    "input": "frame-000170.png",
+    "expected": "mask-000170.png"
+  },
+  {
+    "frame": 341,
+    "input": "frame-000341.png",
+    "expected": "mask-000341.png"
+  },
+  {
+    "frame": 512,
+    "input": "frame-000512.png",
+    "expected": "mask-000512.png"
+  },
+  {
+    "frame": 682,
+    "input": "frame-000682.png",
+    "expected": "mask-000682.png"
+  },
+  {
+    "frame": 853,
+    "input": "frame-000853.png",
+    "expected": "mask-000853.png"
+  },
+  {
+    "frame": 1024,
+    "input": "frame-001024.png",
+    "expected": "mask-001024.png"
+  },
+  {
+    "frame": 1195,
+    "input": "frame-001195.png",
+    "expected": "mask-001195.png"
+  },
+  {
+    "frame": 1365,
+    "input": "frame-001365.png",
+    "expected": "mask-001365.png"
+  },
+  {
+    "frame": 1536,
+    "input": "frame-001536.png",
+    "expected": "mask-001536.png"
+  },
+  {
+    "frame": 1707,
+    "input": "frame-001707.png",
+    "expected": "mask-001707.png"
+  },
+  {
+    "frame": 1878,
+    "input": "frame-001878.png",
+    "expected": "mask-001878.png"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net10.0": {
+      "OpenCvSharp5": {
+        "type": "Direct",
+        "requested": "[5.0.0.20261003, )",
+        "resolved": "5.0.0.20261003",
+        "contentHash": "gwa8ZfLf4qn4e+b+lg5mBwj05XRr40vhZ6vZSG6rF8Hdxm1WvNe9XLVmcre3/BK3+7lYzuv8zArjZ9PcO3UyXw=="
+      },
+      "OpenCvSharp5.runtime.win": {
+        "type": "Direct",
+        "requested": "[5.0.0.20261003, )",
+        "resolved": "5.0.0.20261003",
+        "contentHash": "l7QSrb+vUo98ouRymDtTMN06t6/5fVr26axjL+MG8cEF8n6D4rdq+0GM2MeNNPfVo9XXggvsaHHC2MoGcMGFVw=="
+      },
+      "mousetrackertabajara.core": {
+        "type": "Project"
+      }
+    },
+    "net10.0/win-x64": {
+      "OpenCvSharp5.runtime.win": {
+        "type": "Direct",
+        "requested": "[5.0.0.20261003, )",
+        "resolved": "5.0.0.20261003",
+        "contentHash": "l7QSrb+vUo98ouRymDtTMN06t6/5fVr26axjL+MG8cEF8n6D4rdq+0GM2MeNNPfVo9XXggvsaHHC2MoGcMGFVw=="
+      }
+    }
+  }
+}

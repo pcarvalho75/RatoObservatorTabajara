@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType><TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF><PlatformTarget>x64</PlatformTarget>
+    <AssemblyName>MouseTrackerTabajara</AssemblyName>
+    <AssemblyTitle>Mouse Tracker Tabajara</AssemblyTitle>
+    <Product>Mouse Tracker Tabajara</Product>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../MouseTrackerTabajara.Cli/MouseTrackerTabajara.Cli.csproj" />
+    <ProjectReference Include="../../features/camera-calibration/MouseTrackerTabajara.Calibration.csproj" />
+    <ProjectReference Include="../MouseTrackerTabajara.Application/MouseTrackerTabajara.Application.csproj" />
+    <ProjectReference Include="../MouseTrackerTabajara.Cli/MouseTrackerTabajara.Cli.csproj" />
+    <ProjectReference Include="../MouseTrackerTabajara.Core/MouseTrackerTabajara.Core.csproj" />
+    <ProjectReference Include="../MouseTrackerTabajara.Tracking/MouseTrackerTabajara.Tracking.csproj" />
+    <ProjectReference Include="../MouseTrackerTabajara.Storage/MouseTrackerTabajara.Storage.csproj" />
+    <ProjectReference Include="../../features/spatial-views/Wpf/MouseTrackerTabajara.SpatialViews.Wpf.csproj" />
+  </ItemGroup>
+</Project>
