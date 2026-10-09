@@ -10,6 +10,8 @@
         <ScrollViewer x:Name="SidebarActionsScroll" Grid.Row="1" Margin="0,12,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" CanContentScroll="False"><StackPanel><StackPanel.Resources><Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}"><Setter Property="HorizontalContentAlignment" Value="Left"/><Setter Property="ContentTemplate"><Setter.Value><DataTemplate><TextBlock Text="{Binding}" TextWrapping="Wrap"/></DataTemplate></Setter.Value></Setter></Style></StackPanel.Resources><TextBlock Text="Native Windows workspace" Foreground="#BBD4E3" FontSize="11" Margin="0,0,0,28"/>
           <TextBlock Text="Video review" Foreground="White" FontSize="17"/><TextBlock Text="One animal at a time.&#10;One experiment together." Foreground="#BBD4E3" Margin="0,12,0,28" TextWrapping="Wrap"/>
           <CheckBox x:Name="BlindReview" Content="Blind review" Foreground="White" Checked="BlindChanged" Unchecked="BlindChanged" ToolTip="Hide group labels, filenames, and animal IDs. Unblinding stores a reviewer and a reason. The video picture is not redacted." AutomationProperties.Name="Blind review. Software labels only. Video pixels are not redacted."/>
+          <Button x:Name="UpdatesButton" Content="Updates" Click="OpenUpdates" Margin="0,5,0,0"/>
+          <TextBlock x:Name="UpdateStatus" TextWrapping="Wrap" Foreground="#8DE0C3" FontSize="11" Margin="0,6,0,6"/>
           <Button Content="Detailed roadmap" Click="OpenRoadmap" Margin="0,5,0,0"/>
           <Button Content="Study atlas" Click="OpenStudyAtlas" Margin="0,5,0,0"/>
           <Button Content="Result stability" Click="OpenResultStability" Margin="0,5,0,0"/>

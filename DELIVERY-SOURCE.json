@@ -1,8 +1,8 @@
 {
+  "source_commit": "d946448382080bdbfd12b82446daafb9937175f9",
   "runtime_version": "10.0.12",
-  "rid_locks": "Derived in isolated snapshot; original resolved versions and content hashes verified unchanged.",
+  "version": "0.1.0-dev.13",
   "sdk_version": "10.0.401",
   "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/delivery/Replay-Build.ps1 -OutputDirectory C:\\TabajaraBuild",
-  "source_commit": "8345a609f4877f677b46013d4ea18494a33b2695",
-  "version": "0.1.0-dev.12"
+  "rid_locks": "Derived in isolated snapshot; original resolved versions and content hashes verified unchanged."
 }

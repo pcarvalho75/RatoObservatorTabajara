@@ -10,7 +10,7 @@ if(Test-Path $root){throw 'Version folder already exists; choose a new dev versi
 New-Item -ItemType Directory -Force $root | Out-Null
 $root=(Resolve-Path $root).Path;$stage=Join-Path $root 'build-source';New-Item -ItemType Directory $stage | Out-Null
 # An explicit source allowlist excludes coordination, private reference rows, logs and media.
-$sourcePaths=@('src','features','tests','scripts','tools/portable-collection-probe','docs/delivery','Directory.Build.props','global.json','MouseTrackerTabajara.sln','LICENSE.txt','README.txt','docs/SOURCE-PROVENANCE.txt','docs/ROADMAP.html','docs/ROADMAP.json','fixtures/mask-reference-cases.json','fixtures/metric-reference-cases.json')
+$sourcePaths=@('src','features','tests','scripts','tools/portable-collection-probe','tools/portable-update-probe','docs/delivery','Directory.Build.props','global.json','MouseTrackerTabajara.sln','LICENSE.txt','README.txt','docs/SOURCE-PROVENANCE.txt','docs/ROADMAP.html','docs/ROADMAP.json','fixtures/mask-reference-cases.json','fixtures/metric-reference-cases.json')
 $snapshot=& (Join-Path $PSScriptRoot 'New-CommitSourceSnapshot.ps1') -Repository $repo -Commit $commit -Paths $sourcePaths -Destination $stage -ArchivePath (Join-Path $root 'committed-source.zip')
 $snapshot | ConvertTo-Json -Depth 5 | Set-Content (Join-Path $root 'source-snapshot.json') -Encoding utf8
 $files=@($snapshot.files.Keys | Sort-Object)
@@ -39,7 +39,7 @@ Copy-Item (Join-Path $stage 'docs/SOURCE-PROVENANCE.txt') $licenses
 Copy-Item (Join-Path $stage 'docs/delivery/licenses/*') $licenses
 New-Item -ItemType Directory (Join-Path $package 'docs') | Out-Null
 Copy-Item (Join-Path $stage 'docs/ROADMAP.*') (Join-Path $package 'docs')
-foreach($guideName in @('COLLABORATOR-TEST.md','QUESTION-COVERAGE.md','SHOWCASE.md','LUCIANA-PROTOCOL.md','REPORT-BOUNDARIES.md','PERFORMANCE-CHECK.md','STUDY-INTAKE.md')){
+foreach($guideName in @('COLLABORATOR-TEST.md','QUESTION-COVERAGE.md','SHOWCASE.md','LUCIANA-PROTOCOL.md','REPORT-BOUNDARIES.md','PERFORMANCE-CHECK.md','STUDY-INTAKE.md','AUTOMATIC-UPDATES.md')){
     $guidePath=Join-Path $stage ('docs/delivery/'+$guideName)
     if(Test-Path -LiteralPath $guidePath){Copy-Item -LiteralPath $guidePath -Destination (Join-Path $package ('docs/'+$guideName))}
 }

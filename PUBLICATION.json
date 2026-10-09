@@ -1,9 +1,8 @@
 {
-  "publication": "Clean public source snapshot without private Git history",
   "repository": "pcarvalho75/RatoObservatorTabajara",
-  "release": "v0.1.0-dev.12",
-  "original_source_commit": "8345a609f4877f677b46013d4ea18494a33b2695",
-  "original_corresponding_source_sha256": "b627bc4dc23cb64f8d9bb98dd7614b0c1ed267f801abb40fa97c5e556103f260",
-  "windows_zip_sha256": "fd963c5eab64622d48635629a3cfbf2326fe3b27df49e330f1734b1f16955e2d",
-  "changes": "Public README, documentation and sanitized validation summary; src/features/tests code unchanged."
+  "version": "0.1.0-dev.13",
+  "production_source_commit": "d946448382080bdbfd12b82446daafb9937175f9",
+  "windows_zip_sha256": "bd35d6f3132623933204e1288735ee8e782198b8522c5c4df53447710baeb43f",
+  "setup_sha256": "902DB441404C532E1426CA81A1B4FEC52BD54A7F8AD8B3E30CE9101512C52DB2",
+  "changes": "Automatic updates and direct per-user EXE installer; public documentation and proof helper repair."
 }

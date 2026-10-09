@@ -4,16 +4,15 @@
 
 ## Download and run
 
-Download the **Windows x64 ZIP** from [Releases](https://github.com/pcarvalho75/RatoObservatorTabajara/releases/tag/v0.1.0-dev.12). The current collaborator-test version is **0.1.0-dev.12**; prereleases are listed on the [releases page](https://github.com/pcarvalho75/RatoObservatorTabajara/releases).
+[**Download the Windows Setup.exe**](https://github.com/pcarvalho75/RatoObservatorTabajara/releases/download/v0.1.0-dev.13/RatoObservatorTabajara-Setup-0.1.0-dev.13.exe), open it, and follow the installation wizard. Start the application from **Rato Observator Tabajara** in the Windows Start Menu. No .NET SDK or Python installation is required.
 
-1. Extract the **entire ZIP** into a new folder.
-2. Open `Start Mouse Tracker Tabajara.cmd`, or `desktop\MouseTrackerTabajara.exe`.
-3. Create a project and keep its `.tabajara` file outside the application folder.
-4. Import your recordings, review their identities and settings, and choose **Analyze all**.
+The installer places the complete app and runtime files in a new folder for your Windows user, without administrator access. Save processed projects outside the application folder. Before changing from an older version, save a processed-project checkpoint and close that version; open your saved project in the new version.
 
-The ZIP includes the .NET/WPF runtime, OpenCV and SQLite. Running the application requires no developer SDK or Python installation. Keep all included files together; the executable alone is insufficient.
+The application checks GitHub for updates automatically at startup and every 12 hours while open. **Updates** in the sidebar offers manual checks, pilot/stable channel settings, verified download/prepare and restart. Restart keeps a pristine rollback checkpoint, opens a separate working copy, preserves blind mode and waits for the new process to confirm startup before closing the old window. See [automatic updates](docs/delivery/AUTOMATIC-UPDATES.md).
 
-For this pilot, use **plain ASCII absolute video paths**, including parent folders, such as `D:\TabajaraVideos\mouse01-day1-trial1.mp4`. Spaces and CSV-quoted commas are supported. UTF-8 trial metadata is supported. The native decoder currently rejects accented video paths.
+Version dev.12 predates automatic updates and needs this one manual installation. The [release page](https://github.com/pcarvalho75/RatoObservatorTabajara/releases/tag/v0.1.0-dev.13) also offers a portable ZIP; extract that whole ZIP and run its launcher if you prefer the portable form.
+
+Use **plain ASCII absolute video paths**, including parent folders, such as `D:\TabajaraVideos\mouse01-day1-trial1.mp4`. Spaces and CSV-quoted commas are supported. UTF-8 trial metadata is supported. The native decoder currently rejects accented video paths.
 
 ## Collection workflow
 
@@ -34,9 +33,9 @@ The image shows a **synthetic demonstration**, not experimental results. See [ad
 
 ## Validation and current scope
 
-This is an **unsigned collaborator-test prerelease**. The retained release receipts aggregate **344 passing checks across nine test projects**, with zero failures or skipped checks in those accepted receipts. They include separate corrective reruns, rather than a claim that every earlier run passed.
+This is an **unsigned collaborator-test prerelease**. The retained release receipts aggregate **344 baseline passing checks across nine test projects, plus 39 focused updater checks and a native handoff proof**, with zero failures or skipped checks in those accepted receipts. They include separate corrective reruns, rather than a claim that every earlier run passed.
 
-The exact Windows package passed local startup/reopening and a synthetic 30-video collection exercise: ten completed analyses were saved, reopened in a separate process and reused while twenty further videos were processed. The four-animal fixture preserved 84 planned slots, 30 mapped videos and 54 explicitly missing slots. Frozen report reconstruction and the specific dev.7 → dev.12 backup/new-copy/rollback exercise passed.
+The previous dev.12 Windows package passed local startup/reopening and a synthetic 30-video collection exercise: ten completed analyses were saved, reopened in a separate process and reused while twenty further videos were processed. The four-animal fixture preserved 84 planned slots, 30 mapped videos and 54 explicitly missing slots. Frozen report reconstruction and the specific dev.7 → dev.12 backup/new-copy/rollback exercise passed.
 
 Synthetic regression establishes software behavior within those checks. Real tracking accuracy, a clean collaborator computer, biological design confirmation and researcher sign-off require collaborator testing. Unsupported endpoints are held; unknown positions are not interpolated into invented paths. The app's reports distinguish repeated trials from independent animals. See [validation details](docs/delivery/RELEASE-VALIDATION.json) and [report boundaries](docs/delivery/REPORT-BOUNDARIES.md).
 
@@ -44,7 +43,7 @@ The historical roadmap and development documents retain their original scope and
 
 ## Source and build
 
-Application source is C#/.NET 10 with WPF. The initial public snapshot comes from the corresponding source of local release commit `8345a609f4877f677b46013d4ea18494a33b2695`. Public documentation is updated separately; the production code is unchanged. Dependency lockfiles include the derived Windows x64 runtime graph.
+Application source is C#/.NET 10 with WPF. The initial public snapshot comes from the corresponding source of local release commit `d94644838208`. Public documentation and the package-bound proof helper are updated separately; the production code matches the tested package. Dependency lockfiles include the derived Windows x64 runtime graph.
 
 On Windows with the pinned .NET SDK from `global.json` and NuGet access/cache:
 

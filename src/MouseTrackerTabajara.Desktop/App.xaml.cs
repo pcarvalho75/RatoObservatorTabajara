@@ -46,8 +46,8 @@ public partial class App : System.Windows.Application
                 database = choice.DatabasePath; studyNote = choice.Note;
             }
             var store = File.Exists(database) ? ProcessedProject.OpenProject(database) : new StudyStore(database);
-            var model = new MainViewModel(new WorkspaceService(store), studyNote);
-            var window = new MainWindow(model); MainWindow = window;
+            var model = new MainViewModel(new WorkspaceService(store), studyNote) { Blind = e.Args.Contains("--blind-review",StringComparer.Ordinal) };
+            var window = new MainWindow(model);window.BlindReview.IsChecked=model.Blind; MainWindow = window;
             await window.InitializeAsync(Argument(e.Args, "--video"), Argument(e.Args, "--analysis"));
             if (geometrySmoke is not null)
             {
@@ -71,14 +71,14 @@ public partial class App : System.Windows.Application
                 writer.WriteLine(window.BrandLayoutReport);
                 Shutdown(0);
             }
-            else { window.Show(); writer.WriteLine("Native WPF startup completed."); }
+            else { window.Show();await window.WaitForSourceReadinessAsync();window.StartAutomaticUpdates();SignalUpdateReady(Argument(e.Args,"--update-ready"),Argument(e.Args,"--study"),model.Blind); writer.WriteLine("Native WPF startup completed."); }
         }
         catch (Exception ex)
         {
             try { writer?.WriteLine(ex.ToString()); } catch (Exception logError) when (logError is IOException or UnauthorizedAccessException or ObjectDisposedException) { Debug.WriteLine(logError); }
             Debug.WriteLine(ex);
             if (Argument(e.Args, "--smoke-screenshot") is null && Argument(e.Args, "--geometry-smoke") is null && Argument(e.Args, "--review-smoke") is null)
-                MessageBox.Show(ex.Message, "Mouse Tracker Tabajara startup", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(e.Args.Contains("--blind-review",StringComparer.Ordinal)?"Startup could not complete. The original workspace and update checkpoints are retained; review the local startup diagnostics.":ex.Message, "Mouse Tracker Tabajara startup", MessageBoxButton.OK, MessageBoxImage.Error);
             Shutdown(1);
         }
         finally

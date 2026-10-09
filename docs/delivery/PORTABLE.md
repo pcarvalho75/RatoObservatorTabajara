@@ -8,6 +8,11 @@ No Python or developer SDK is needed to execute these packaged programs.
 Start with [the collaborator guide](docs/COLLABORATOR-TEST.md) for importing your
 collection, dark-mouse settings, saved processed projects and group comparisons.
 The package also includes a question/output guide in `docs/QUESTION-COVERAGE.md`.
+Updater-equipped versions include an **Updates** action in the sidebar. Automatic
+checks announce newer GitHub packages; download/prepare and restart are explicit
+actions. Restart first saves a separate processed-project checkpoint and opens
+that copy in the new version. See `docs/AUTOMATIC-UPDATES.md`. Version dev.12 needs
+one manual download to gain this feature.
 The build machine needs the pinned SDK in global.json and NuGet access/cache.
 Clean Windows execution remains UNRUN until a fresh Windows machine passes the
 included harness. Native prerequisite availability is not inferred from a host test.

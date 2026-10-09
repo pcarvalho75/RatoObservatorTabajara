@@ -27,6 +27,7 @@ public partial class MainWindow
             await replacement.InitializeAsync();
             if(OwnedWindows.Count!=0)throw new InvalidOperationException("Close review/report windows before changing projects.");
             replacement.Show();
+            if(InteractiveUpdatesActivated)replacement.StartAutomaticUpdates();
             if(System.Windows.Application.Current?.MainWindow==this)System.Windows.Application.Current.MainWindow=replacement;
             Close();return replacement;
         }

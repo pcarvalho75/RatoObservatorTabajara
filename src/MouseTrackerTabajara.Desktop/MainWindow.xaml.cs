@@ -42,7 +42,7 @@ public partial class MainWindow : Window
     public MainWindow(MainViewModel model)
     {
         _model = model; InitializeComponent(); DataContext = model;
-        InitializeProjectLifecycle();
+        InitializeProjectLifecycle();InitializeUpdates();
         TrialGrid.LoadingRow += (_, args) =>
         {
             if (args.Row.Item is TrialRow row) AutomationProperties.SetName(args.Row, row.DisplayName);

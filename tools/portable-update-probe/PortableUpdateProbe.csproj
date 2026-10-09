@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net10.0-windows</TargetFramework><RuntimeIdentifier>win-x64</RuntimeIdentifier><SelfContained>false</SelfContained><UseAppHost>true</UseAppHost><AssemblyName>PortableUpdateProbe</AssemblyName><RestorePackagesWithLockFile>false</RestorePackagesWithLockFile></PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MouseTrackerTabajara.Application"><HintPath>$(PackageDirectory)/desktop/MouseTrackerTabajara.Application.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="MouseTrackerTabajara.Storage"><HintPath>$(PackageDirectory)/desktop/MouseTrackerTabajara.Storage.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+  <Target Name="RequireExtractedPackage" BeforeTargets="ResolveAssemblyReferences"><Error Condition="!Exists('$(PackageDirectory)/desktop/MouseTrackerTabajara.Application.dll')" Text="PackageDirectory must name the extracted updater-equipped package. This probe does not rebuild production." /></Target>
+</Project>

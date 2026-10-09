@@ -17,7 +17,7 @@ The [trajectory](showcase/context-001-trial-001_PATH.svg) and
 
 Current retained capture receipt and files (local developer/controller evidence; package placement decided by controller):
 
-Retained local developer evidence is not part of the public source snapshot.
+`C:\Users\paulo\.codex\worktrees\tabajara-sol-review\Mouse\.workmap\logs\S21-showcase\native-6566faebebdc46a48a2e6cc1f51abdf1\`
 
 Files: `synthetic-group-heatmaps-and-bounds-1440x960.png`, `synthetic-proximity-distribution-1440x960.png`, `synthetic-observed-distance-1050x700.png`, `context-001-trial-001_PATH.svg`, `context-001-trial-001_PCOORD.svg`, `context-001-trial-001_DENSI.svg`, `context-001_GROUP_DIFFERENCE.svg`, and `receipt.json` with source publication/path/hash identities. PNGs were visually inspected as synthetic controls only. Ignored developer artifacts may not accompany a source checkout.
 
